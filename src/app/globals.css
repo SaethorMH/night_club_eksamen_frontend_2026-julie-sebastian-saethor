@@ -12,6 +12,10 @@
   --font-header: var(--font-ubuntu);
 }
 
+* {
+  color: var(--white);
+}
+
 @layer components {
   /* Fonts */
   h1 {
