@@ -14,7 +14,8 @@ export interface Event {
   slug: string;
   excerpt: string;
   asset: Asset;
-  place: string;
+  heroAsset: Asset;
+  location: string;
   date: string;
 }
 
@@ -45,8 +46,9 @@ const EventsPage = async () => {
             title={e.title}
             slug={e.slug}
             excerpt={e.excerpt}
-            place={e.place}
+            location={e.location}
             asset={e.asset}
+            heroAsset={e.heroAsset}
             date={e.date}
           />
         ))}
