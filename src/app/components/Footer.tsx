@@ -6,11 +6,11 @@ import { FaInstagram } from "react-icons/fa6";
 export default function Footer(){
     return (
       <>
-        <footer className=" relative   ">
-          <Image src="/assets/background_images/footerbg.jpg" width={1920} height={800} alt="footerbg " className="   " />
+        <footer className=" relative @container ">
+          <Image src="/assets/background_images/footerbg.jpg" width={1920} height={800} alt="footerbg " className="@max-3xl: h-[800] object-cover  " />
           <div className=" absolute inset-0 bg-(--black) opacity-70 "></div>
-          <article className=" absolute w-full z-10 top-[25%] ">
-            <section className="grid grid-cols-3 ">
+          <article className="  absolute w-full z-10 top-[25%] ">
+            <section className="grid @3xl:grid-cols-3 ">
               <div className="mx-auto">
                 <Logo />
                 <h4 className="mt-5">Location</h4>
@@ -21,7 +21,7 @@ export default function Footer(){
                 <p>SAT - SUN: 11 PM TO 5 AM</p>
               </div>
 
-              <div className="mx-auto ">
+              <div className=" @max-3xl:hidden @3xl:mx-auto ">
                 <h4 className="uppercase">news</h4>
                 <div className=" flex items-start ">
                   <Image src="/assets/content/track2.jpg" width={120} height={120} alt="newsimg1" className="" />
@@ -38,7 +38,7 @@ export default function Footer(){
                   </div>
                 </div>
               </div>
-              <div className="mx-auto ">
+              <div className=" @max-3xl:hidden @3xl:mx-auto ">
                 <h4 className="uppercase">Recent Posts</h4>
                 <div className="flex items-start">
                   <p>X</p>
