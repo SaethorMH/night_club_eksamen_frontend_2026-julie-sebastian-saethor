@@ -82,3 +82,8 @@ export async function getAllEvents() {
   const data = await response.json();
   return data;
 }
+export async function getOneEvent(slug: string) {
+  const response = await fetch(API_URL + "events/" + slug);
+  const data = await response.json();
+  return data;
+}

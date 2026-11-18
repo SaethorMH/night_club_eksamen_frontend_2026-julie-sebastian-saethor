@@ -1,6 +1,7 @@
 import { title } from "process";
 import EventCard from "./_components/EventCard";
 import { getAllEvents } from "../actions/actions";
+import TitleCard from "../components/TitleCard";
 
 export interface Asset {
   url: string;
@@ -17,12 +18,14 @@ export interface Event {
   heroAsset: Asset;
   location: string;
   date: string;
+  event: object;
 }
 
 const EventsPage = async () => {
   const events: Event[] = await getAllEvents();
   return (
     <>
+      <TitleCard title="Events" />
       <section>
         {/* <EventCard
           id={1}
@@ -50,6 +53,7 @@ const EventsPage = async () => {
             asset={e.asset}
             heroAsset={e.heroAsset}
             date={e.date}
+            event={e}
           />
         ))}
       </section>
