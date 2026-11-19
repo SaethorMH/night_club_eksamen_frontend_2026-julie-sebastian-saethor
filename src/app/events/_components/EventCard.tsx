@@ -32,10 +32,10 @@ const EventCard = (event: Event) => {
     <article className="grid grid-cols-2">
       {event.id % 2 !== 0 && (
         <Image
-          height={event.heroAsset.height}
-          width={event.heroAsset.width}
-          alt={event.heroAsset.alt}
-          src={event.heroAsset.url}
+          height={event.asset.height}
+          width={event.asset.width}
+          alt={event.asset.alt}
+          src={event.asset.url}
           className="cover object-fill"
         />
       )}

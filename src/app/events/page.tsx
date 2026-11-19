@@ -1,7 +1,11 @@
-import { title } from "process";
 import EventCard from "./_components/EventCard";
-import { getAllEvents } from "../actions/actions";
+import { getPaginatedEvents } from "../actions/actions";
 import TitleCard from "../components/TitleCard";
+import PageNav from "./_components/PageNav";
+
+type Props = {
+  searchParams: Promise<{ page?: string }>;
+};
 
 export interface Asset {
   url: string;
@@ -21,8 +25,10 @@ export interface Event {
   event: object;
 }
 
-const EventsPage = async () => {
-  const events: Event[] = await getAllEvents();
+const EventsPage = async ({ searchParams }: Props) => {
+  const { page } = await searchParams;
+  const currentPage = Number(page) || 1;
+  const events: Event[] = await getPaginatedEvents(currentPage);
   return (
     <>
       <TitleCard title="Events" />
@@ -56,6 +62,7 @@ const EventsPage = async () => {
             event={e}
           />
         ))}
+        <PageNav currentPage={currentPage} />
       </section>
     </>
   );

@@ -82,6 +82,12 @@ export async function getAllEvents() {
   const data = await response.json();
   return data;
 }
+export async function getPaginatedEvents(page: number) {
+  const response = await fetch(API_URL + "events?_page=" + page + "&_limit=3");
+  const data = await response.json();
+  return data;
+}
+
 export async function getOneEvent(slug: string) {
   const response = await fetch(API_URL + "events/" + slug);
   const data = await response.json();
