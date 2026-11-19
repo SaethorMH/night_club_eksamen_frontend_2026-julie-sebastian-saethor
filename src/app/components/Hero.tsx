@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import Link from "next/link";
-import {AnimatePresence, motion} from "motion/react"
+import {motion} from "motion/react"
 const MotionImage = motion.create(Image)
 export default function Hero(){
     return (
