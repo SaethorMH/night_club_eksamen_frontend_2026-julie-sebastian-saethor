@@ -12,10 +12,10 @@ export default function BookingForm() {
   }
 
   return (
-    <section>
+    <section className="flex flex-col flex-2">
       <h2 className="font-bold">Book a table</h2>
 
-      <form onSubmit={handleSumit}>
+      <form onSubmit={handleSumit} className="item-center">
         <input type="text" name="yourName" placeholder="Your Name" />
 
         <button type="submit" className="uppercase">
