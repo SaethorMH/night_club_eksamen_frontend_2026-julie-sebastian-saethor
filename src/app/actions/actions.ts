@@ -6,7 +6,7 @@ export async function Forms(formData: FormData) {
   const yourName = formData.get("yourName");
   const yourEmail = formData.get("yourEmail");
   const tableNumber = formData.get("tableNumber");
-  const numberOfGuest = formData.get("numberOfGuest");
+  const numberOfGuests = formData.get("numberOfGuests");
   const chooseNight = formData.get("chooseNight");
   const yourContactNumber = formData.get("yourContactNumber");
   const comment = formData.get("comment");
@@ -15,7 +15,7 @@ export async function Forms(formData: FormData) {
     yourName,
     yourEmail,
     tableNumber,
-    numberOfGuest,
+    numberOfGuests,
     chooseNight,
     yourContactNumber,
     comment,

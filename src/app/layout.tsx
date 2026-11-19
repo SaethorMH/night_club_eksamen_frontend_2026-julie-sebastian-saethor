@@ -13,7 +13,7 @@ const ubuntu = Ubuntu({
 export const metadata: Metadata = {
   title: "Night Club",
   description: "Have a good time",
-  icons: "/assets/icons/favicon.png",
+  icons: "assets/icons/favicon.png",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
