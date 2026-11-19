@@ -29,25 +29,6 @@ export async function Forms(formData: FormData) {
     };
   }
 
-  //   try {
-  //     const response = await fetch("https://dummyjson.com/recipes/add", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify({
-  //         yourName: validatedFields.data.yourname,
-  //         youremail: validatedFields.data.yourEmail,
-  //         tableNumber: validatedFields.data.tableNumber,
-  //         numberOfGuest: validatedFields.data.numberOfGuest,
-  //         chooseNight: validatedFields.data.chooseNight,
-  //         yourContactNumber: validatedFields.data.yourContactNumber,
-  //         comment: validatedFields.data.comment,
-  //       }),
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error(`Response status: ${response.status}`);
-  //     }
-
   console.log("Booking approved", validatedFields.data);
 
   return {
@@ -57,7 +38,7 @@ export async function Forms(formData: FormData) {
   };
 }
 
-//  export default Forms;
+export default Forms;
 
 // export async function getAllEvents() {
 //   const response = await fetch(API_URL + "events");
