@@ -3,8 +3,6 @@ import * as z from "zod";
  import { InfoForms } from "../formSchema/formSchema";
 
 
-
-
 export async function Forms(formData: FormData) {
   const yourName = formData.get("yourName");
   const yourEmail = formData.get("yourEmail");

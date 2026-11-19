@@ -41,22 +41,23 @@ yourName: "",
     <>
     <section>
 
-<form action={InfoForms} noValidate>
-<h2>Book a table</h2>
 
+  <div className=" p-2"> <h2>Book a table</h2> </div>
 <article  className="grid grid-cols-2
 g-2">
+<form action={Forms} noValidate>
+  <label htmlFor="yourName" className="font-light gap-5 p-2" ></label>
 <p>Your Name </p>
 <p>Your Email valider med skal have '@' og '.'</p>
 <p>Table Number</p>
 <p> Number og Guests</p>
 <p> Choose Night // *kalender menu? **//</p>
 <p> Your Comment</p>
-
+</form>
 </article>
 
 
-</form>
+
     </section>
 
 
