@@ -11,28 +11,6 @@ export default function BookingForm() {
     console.log("Booking data", Object.fromEntries(formData.entries()));
   }
 
-  //   const [formFields, setFormFields] = useState({
-  // yourName: "",
-  //     yourEmail: "",
-  //     tableNumber: "",
-  //     numberOfGuest: "",
-  //     chooseNight: "",
-  //     yourContactNumber: "",
-  //     comment: "",
-  //   });
-
-  //   function handleChange(event) {
-  //    const { name, value } = event.target;
-
-  //       setFormFields((currentFields) => ({
-  //         ...currentFields,
-  //         // [name]: value,
-  //       }));
-  //     // }
-  //   // }
-
-  //     }
-
   return (
     <section>
       <h2 className="font-bold">Book a table</h2>
