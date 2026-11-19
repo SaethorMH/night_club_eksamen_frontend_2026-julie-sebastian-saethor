@@ -75,6 +75,7 @@
 // };
 
 // export default InfoForms;
+
 import { API_URL } from "@/config";
 
 export async function getAllEvents() {
