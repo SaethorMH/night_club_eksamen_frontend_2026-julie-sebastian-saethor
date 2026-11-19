@@ -1,30 +1,52 @@
-import { title } from "process";
 import EventCard from "./_components/EventCard";
-import { getAllEvents } from "../actions/actions";
+import { getPaginatedEvents } from "../actions/actions";
+import TitleCard from "../components/TitleCard";
+import PageNav from "./_components/PageNav";
+
+type Props = {
+  searchParams: Promise<{ page?: string }>;
+};
+
+export interface Asset {
+  url: string;
+  width: number;
+  height: number;
+  alt: string;
+}
 export interface Event {
   id: number;
   title: string;
   slug: string;
   excerpt: string;
-  image: string;
-  place: string;
+  asset: Asset;
+  heroAsset: Asset;
+  location: string;
   date: string;
+  event: object;
 }
 
-const EventsPage = async () => {
-  const events: Event[] = await getAllEvents();
+const EventsPage = async ({ searchParams }: Props) => {
+  const { page } = await searchParams;
+  const currentPage = Number(page) || 1;
+  const events: Event[] = await getPaginatedEvents(currentPage);
   return (
     <>
+      <TitleCard title="Events" />
       <section>
-        <EventCard
+        {/* <EventCard
           id={1}
           title="placeholder title"
           slug="place-holder-slug"
           excerpt="placeholder excerpt"
           place="placeholder place"
-          image=""
+          asset={{
+            url: "placegholder url",
+            width: 200,
+            height: 200,
+            alt: "placeholder alt",
+          }}
           date="placeholder date"
-        />
+        /> */}
 
         {events.map((e: Event) => (
           <EventCard
@@ -33,11 +55,14 @@ const EventsPage = async () => {
             title={e.title}
             slug={e.slug}
             excerpt={e.excerpt}
-            place={e.place}
-            image={e.image}
+            location={e.location}
+            asset={e.asset}
+            heroAsset={e.heroAsset}
             date={e.date}
+            event={e}
           />
         ))}
+        <PageNav currentPage={currentPage} />
       </section>
     </>
   );
