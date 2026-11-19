@@ -3,8 +3,8 @@ import Link from "next/link";
 import Logo from "./Logo"
 export default function Header(){
 return (
-  <header className=" @container py-3 sticky border-2  border-border-header ">
-    <article className=" flex justify-evenly place-items-center m-auto gap-8">
+  <header className=" @container py-3 border-2  border-border-header ">
+    <article className=" flex justify-evenly place-items-center m-auto gap-8 ">
       <Logo />
 
       <button popoverTarget="popover" className="@3xl:hidden ">
