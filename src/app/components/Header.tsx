@@ -11,8 +11,8 @@ export default function Header(){
   const currentPath = usePathname();
   
 return (
-  <header className=" @container py-3 border-2  border-border-header ">
-    <article className=" flex justify-evenly place-items-center m-auto gap-8 ">
+  <header className=" @container py-3 border-2  border-border-header t ">
+    <article className=" flex justify-evenly place-items-center m-auto gap-8  ">
       <Logo />
 
       <button popoverTarget="popover" className="@3xl:hidden ">
@@ -29,23 +29,32 @@ return (
         <Link href={"/"}>Contact us</Link>
       </div>
 
-      <nav className=" hidden @3xl:flex justify-evenly place-items-center gap-10 uppercase  ">
-        <div className="relative">
-          <RollingLink href="/" aria-current={currentPath === "/" ? "page" : undefined}>
+      <nav className=" hidden @3xl:flex justify-evenly place-items-center gap-10 uppercase   ">
+        <div className="relative ">
+          <RollingLink href="/" ariacurrent={currentPath === "/" ? "page" : undefined}>
             Home
           </RollingLink>
           {currentPath === "/" && <MotionImage src="/assets/bottom_line_slider/bottom_line2.png" width={48} height={2} alt="slider" className="absolute mx-auto -bottom-2  " />}
         </div>
+        <div className="relative">
+          <RollingLink href="/events/" ariacurrent={currentPath.startsWith("/events") ? "page" : undefined}>
+            Events
+          </RollingLink>
+          {currentPath.startsWith("/events") && <MotionImage src="/assets/bottom_line_slider/bottom_line2.png" width={48} height={2} alt="slider" className="absolute mx-auto -bottom-2  " />}
+        </div>
+        <div className="relative">
+          <RollingLink href="/booktable/" ariacurrent={currentPath.startsWith("/booktable") ? "page" : undefined}>
+            Book table
+          </RollingLink>
+        </div>
+        {currentPath.startsWith("/booktable") && <MotionImage src="/assets/bottom_line_slider/bottom_line2.png" width={48} height={2} alt="slider" className="absolute mx-auto -bottom-2  " />}
 
-        <RollingLink href="/events" aria-current={currentPath.startsWith("/events") ? "page" : undefined}>
-          Events
-        </RollingLink>
-        <RollingLink href="/booktable" aria-current={currentPath.startsWith("/booktable") ? "page" : undefined}>
-          Book table
-        </RollingLink>
-        <RollingLink href="/contact" aria-current={currentPath.startsWith("/contact") ? "page" : undefined}>
-          Contact us
-        </RollingLink>
+        <div className="relative">
+          <RollingLink href="/contact/" ariacurrent={currentPath.startsWith("/contact/") ? "page" : undefined}>
+            Contact us
+          </RollingLink>
+          {currentPath.startsWith("/contact") && <MotionImage src="/assets/bottom_line_slider/bottom_line2.png" width={48} height={2} alt="slider" className="absolute mx-auto -bottom-2  " />}
+        </div>
       </nav>
     </article>
   </header>
@@ -55,19 +64,19 @@ return (
 
 
 
-const RollingLink = ({ children, href }: { children: string; href: string  }) => {
-const duration = 0.25;
-const stagger = 0.025;
+const RollingLink = ({ children, href, ariacurrent }: { children: string; href: string; ariacurrent?: boolean}) => {
+  const duration = 0.25;
+  const stagger = 0.025;
 
   return (
     <>
-      <motion.a initial="initial" whileHover="hovering" href={href} className="relative block overflow-hidden whitespace-nowrap">
+      <motion.a initial="initial" whileHover="hovering" href={href} className="relative block overflow-hidden whitespace-nowrap ">
         <div>
           {children.split("").map((letter, index) => {
             return (
               <motion.span
                 variants={{
-                  initial: { y: 0 },
+                  initial: { y: 0, color: ariacurrent ? "var(--pink)": "currentcolor"},
                   hovering: { y: "-100%", color: "var(--pink)" },
                 }}
                 transition={{
@@ -84,7 +93,7 @@ const stagger = 0.025;
           })}
         </div>
 
-        <div className="absolute inset-0 ">
+        <div className="absolute inset-0  ">
           {children.split("").map((letter, index) => {
             return (
               <motion.span
@@ -105,10 +114,7 @@ const stagger = 0.025;
             );
           })}
         </div>
-       </motion.a>
+      </motion.a>
     </>
   );
-  
-  
-  
 };
