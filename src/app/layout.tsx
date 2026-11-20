@@ -22,8 +22,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${ubuntu.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <Header />
-        <main className="flex-1">{children}</main>
-
+        {children}
         <Footer />
       </body>
     </html>
