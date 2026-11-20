@@ -34,14 +34,18 @@ return (
           <RollingLink href="/" aria-current={currentPath === "/" ? "page" : undefined}>
             Home
           </RollingLink>
-          {currentPath === "/" &&(
-          <MotionImage src="/assets/bottom_line_slider/bottom_line2.png" width={48} height={2} alt="slider" className="absolute mx-auto -bottom-2  " />
-          )}
+          {currentPath === "/" && <MotionImage src="/assets/bottom_line_slider/bottom_line2.png" width={48} height={2} alt="slider" className="absolute mx-auto -bottom-2  " />}
         </div>
-        
-        <RollingLink href="/">Events</RollingLink>
-        <RollingLink href="/">Book table</RollingLink>
-        <RollingLink href="/">Contact us</RollingLink>
+
+        <RollingLink href="/events" aria-current={currentPath.startsWith("/events") ? "page" : undefined}>
+          Events
+        </RollingLink>
+        <RollingLink href="/booktable" aria-current={currentPath.startsWith("/booktable") ? "page" : undefined}>
+          Book table
+        </RollingLink>
+        <RollingLink href="/contact" aria-current={currentPath.startsWith("/contact") ? "page" : undefined}>
+          Contact us
+        </RollingLink>
       </nav>
     </article>
   </header>
