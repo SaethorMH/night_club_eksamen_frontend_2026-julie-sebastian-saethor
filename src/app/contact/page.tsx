@@ -1,6 +1,5 @@
-"use client";
-import type { SubmitEvent } from "react";
+import  ContactForm from "@/app/contact/_components/ContactForm"
 
-export default function ContactForm() {
-  return <section></section>;
+export default function Page() {
+  return <ContactForm />;
 }
