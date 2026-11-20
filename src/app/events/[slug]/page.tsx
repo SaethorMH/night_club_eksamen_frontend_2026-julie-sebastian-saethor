@@ -17,7 +17,7 @@ const EventDetails = async ({ params }: Props) => {
     <>
       <TitleCard title={event.title} />
       <EventDetailsSection />
-      <CommentsSection />
+      <CommentsSection id={event.id} />
     </>
   );
 };
