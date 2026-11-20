@@ -1,14 +1,28 @@
 import { getComments } from "@/app/actions/actions";
-import EventCard from "../../_components/EventCard";
+import EventComment from "./EventComment";
+import { number } from "zod";
 
-const CommentsSection = (id: number = 1) => {
-    const comments = getComments(id);
+export interface Comment {
+  id: number;
+  eventId: number;
+  name: string;
+  content: string;
+  date: string;
+}
+type Props = {
+  id: number;
+};
+
+const CommentsSection = async ({ id = 1 }: Props) => {
+  const comments = await getComments(id);
 
   return (
     <section>
-      <h2>3 Comments</h2>
+      <h2>{comments.length} Comments</h2>
       <div>
-        {comments.map((comment)=><EventCard comment={comment}))}
+        {comments.map((c: Comment) => (
+          <EventComment key={c.id} comment={c} />
+        ))}
       </div>
     </section>
   );

@@ -1,7 +1,12 @@
-const EventComment = (comment: object) => {
+import { Comment } from "./CommentsSection";
+
+type Props = {
+  comment: Comment;
+};
+const EventComment = ({ comment }: Props) => {
   return (
     <article>
-      <h3>comment</h3>
+      <h3>{comment.name}</h3>
     </article>
   );
 };

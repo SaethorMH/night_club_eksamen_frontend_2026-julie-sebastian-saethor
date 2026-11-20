@@ -95,7 +95,7 @@ export async function getOneEvent(slug: string) {
   return data;
 }
 export async function getComments(id: number = 1) {
-  const response = await fetch(API_URL + "/comments?eventId=" + id);
+  const response = await fetch(API_URL + "comments?eventId=" + id);
   const data = await response.json();
   return data;
 }
