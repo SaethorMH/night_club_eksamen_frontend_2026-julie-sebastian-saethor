@@ -17,15 +17,15 @@ export default function BookingForm() {
 
       <form onSubmit={handleSumit} noValidate>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <input type="text" name="yourName" placeholder="Your Name" aria-label="Your Name"  />
+          <input type="text" name="yourName" placeholder="Your Name" aria-label="Your Name" />
 
-          <input type="email" name="yourEmail" placeholder="Your Email" aria-label="Your Email"  />
+          <input type="email" name="yourEmail" placeholder="Your Email" aria-label="Your Email" />
 
           <input type="number" name="tableNumber" placeholder="Table Number" aria-label="Table Nuber" />
 
-          <input type="number" name="numberOfGuests" placeholder="Number Of Guests"  />
+          <input type="number" name="numberOfGuests" placeholder="Number Of Guests" />
 
-          <input type="date" name="chooseNight" placeholder="Choose Night" aria-label="Choose Night"  />
+          <input type="date" name="chooseNight" placeholder="Choose Night" aria-label="Choose Night" />
 
           <input type="tel" name=" yourContactNumber" placeholder="Your Contact Number" aria-label="Your Contact Number" />
 
@@ -33,9 +33,7 @@ export default function BookingForm() {
         </div>
 
         <div className="mt-4 flex justify-end">
-          <button type="submit" className=" border-y uppercase px-8 py-3 text-sm text-gray-400">
-            Reseve
-          </button>
+          <button type="submit">Reseve table</button>
         </div>
       </form>
     </section>
