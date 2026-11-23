@@ -28,6 +28,19 @@ const links = [
 
 export default function Header() {
   const currentPath = usePathname();
+  
+return (
+  <header className="sticky top-0  z-10 bg-black @container py-3 border-2  border-border-header t ">
+    <article className=" flex justify-evenly place-items-center m-auto gap-8  ">
+      <Logo />
+
+      <button popoverTarget="popover" className="@3xl:hidden ">
+        ≡
+      </button>
+      <div id="popover" popover="auto" className="  bg-(--black) opacity-70 w-screen h-screen open:grid grid-cols-1 text-center gap-1">
+        <button popoverTarget="popover" popoverTargetAction="hide" className="">
+          X
+        </button>
   const [hovered, setHovered] = useState<string | null>(null);
 
   const activeHref = links.find((l) => l.isActive(currentPath))?.href ?? null;
