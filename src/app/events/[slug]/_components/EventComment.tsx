@@ -1,6 +1,6 @@
 import { Comment } from "./CommentsSection";
 
-const MONTHS = [
+export const MONTHS = [
   "January",
   "February",
   "March",
