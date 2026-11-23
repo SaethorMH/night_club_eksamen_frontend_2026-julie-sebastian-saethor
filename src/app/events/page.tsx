@@ -13,15 +13,29 @@ export interface Asset {
   height: number;
   alt: string;
 }
+export interface Schedule {
+  time: string;
+  label: string;
+}
 export interface Event {
   id: number;
-  title: string;
   slug: string;
+  title: string;
   excerpt: string;
+  description: string;
+  content: string;
+  date: string;
+  doorsOpen: string;
   asset: Asset;
   heroAsset: Asset;
   location: string;
-  date: string;
+  category: string;
+  lineup: string[];
+  schedule: Schedule[];
+  price: string;
+  ageLimit: string;
+  isFeatured: boolean;
+
   event: object;
 }
 
@@ -52,14 +66,23 @@ const EventsPage = async ({ searchParams }: Props) => {
           <EventCard
             key={e.id}
             id={e.id}
-            title={e.title}
             slug={e.slug}
+            title={e.title}
             excerpt={e.excerpt}
-            location={e.location}
+            description={e.description}
+            content={e.content}
+            date={e.date}
+            doorsOpen={e.doorsOpen}
             asset={e.asset}
             heroAsset={e.heroAsset}
-            date={e.date}
-            event={e}
+            location={e.location}
+            category={e.category}
+            lineup={e.lineup}
+            schedule={e.schedule}
+            price={e.price}
+            ageLimit={e.ageLimit}
+            isFeatured={e.isFeatured}
+            event={e.event}
           />
         ))}
         <PageNav currentPage={currentPage} />
