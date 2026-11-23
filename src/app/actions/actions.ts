@@ -3,21 +3,21 @@ import * as z from "zod";
 import { InfoForms } from "../formSchema/formSchema";
 
 export async function Forms(formData: FormData) {
-  const yourName = formData.get("yourName");
-  const yourEmail = formData.get("yourEmail");
-  const tableNumber = formData.get("tableNumber");
-  const numberOfGuests = formData.get("numberOfGuests");
-  const chooseNight = formData.get("chooseNight");
-  const yourContactNumber = formData.get("yourContactNumber");
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const table = formData.get("table");
+  const pax = formData.get("pax");
+  const date = formData.get("date");
+  const phone = formData.get("phone");
   const comment = formData.get("comment");
 
   const validatedFields = InfoForms.safeParse({
-    yourName,
-    yourEmail,
-    tableNumber,
-    numberOfGuests,
-    chooseNight,
-    yourContactNumber,
+    name,
+    email,
+    table,
+    pax,
+    date,
+    phone,
     comment,
   });
 

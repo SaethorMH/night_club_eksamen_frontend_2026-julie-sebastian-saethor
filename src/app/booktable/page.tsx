@@ -3,10 +3,10 @@ import TitleCard from "../components/TitleCard";
 
 export default function Page() {
   return (
-  <>
-    <TitleCard title="Book table" />
+    <>
+      <TitleCard title="Book table" />
 
-    <BookingForm />
-  </>
+      <BookingForm />
+    </>
   );
 }
