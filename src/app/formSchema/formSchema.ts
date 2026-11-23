@@ -4,8 +4,8 @@ export const InfoForms = z.object({
   yourName: z
     .string()
     .trim()
-    .min(1, "Feltet må ikke være tomt")
-    .regex(/^[\p{L} ]+$/u, "Use only letters and spaces in the recipe name."),
+    .min(1, "Fill this empty space")
+    .regex(/^[\p{L} ]+$/u, "Use only letters and spaces."),
   yourEmail: z.email(),
   numberOfGuests: z.coerce.number().int("Use numbers only.").min(1, ""),
   yourContactNumber: z.string(),

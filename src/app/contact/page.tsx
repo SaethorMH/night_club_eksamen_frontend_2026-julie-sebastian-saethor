@@ -1,5 +1,11 @@
-import  ContactForm from "@/app/contact/_components/ContactForm"
+import ContactForm from "@/app/contact/_components/ContactForm";
+import TitleCard from "../components/TitleCard";
 
 export default function Page() {
-  return <ContactForm />;
+  return (
+    <>
+      <TitleCard title="Contact" />
+      <ContactForm />
+    </>
+  );
 }
