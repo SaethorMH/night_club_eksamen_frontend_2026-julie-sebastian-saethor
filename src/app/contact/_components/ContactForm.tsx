@@ -19,12 +19,20 @@ export default function ContactForm() {
 
           <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" />
 
-          <input type="text" name="comment" placeholder="Your Comments" className="h-30  md:col-span-2" />
+          <input
+            type="text"
+            name="comment"
+            placeholder="Your Comments"
+            className="h-30  md:col-span-2"
+          />
         </div>
 
         <div className="mt-4 flex justify-end">
-          <button type="submit" className=" border-y uppercase px-8 py-3 text-sm text-gray-400">
-            Reseve
+          <button
+            type="submit"
+            className=" border-y uppercase px-8 py-3 text-sm text-gray-400"
+          >
+            Reserve
           </button>
         </div>
       </form>
