@@ -11,14 +11,14 @@ export default function Header(){
   const currentPath = usePathname();
   
 return (
-  <header className=" @container py-3 border-2  border-border-header t ">
+  <header className="sticky top-0  z-10 bg-black @container py-3 border-2  border-border-header t ">
     <article className=" flex justify-evenly place-items-center m-auto gap-8  ">
       <Logo />
 
       <button popoverTarget="popover" className="@3xl:hidden ">
         ≡
       </button>
-      <div id="popover" popover="auto" className="   bg-(--black) opacity-70 w-screen h-screen open:grid grid-cols-1 text-center gap-1">
+      <div id="popover" popover="auto" className="  bg-(--black) opacity-70 w-screen h-screen open:grid grid-cols-1 text-center gap-1">
         <button popoverTarget="popover" popoverTargetAction="hide" className="">
           X
         </button>
@@ -64,7 +64,7 @@ return (
 
 
 
-const RollingLink = ({ children, href, ariacurrent }: { children: string; href: string; ariacurrent?: boolean}) => {
+const RollingLink = ({ children, href, ariacurrent }: { children: string; href: string; ariacurrent: boolean}) => {
   const duration = 0.25;
   const stagger = 0.025;
 
@@ -76,7 +76,7 @@ const RollingLink = ({ children, href, ariacurrent }: { children: string; href: 
             return (
               <motion.span
                 variants={{
-                  initial: { y: 0, color: ariacurrent ? "var(--pink)": "currentcolor"},
+                  initial: { y: 0, color: ariacurrent ? "var(--pink)": undefined},
                   hovering: { y: "-100%", color: "var(--pink)" },
                 }}
                 transition={{
