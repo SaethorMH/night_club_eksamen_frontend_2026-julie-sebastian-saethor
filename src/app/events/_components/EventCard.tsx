@@ -36,7 +36,7 @@ const EventCard = (event: Event) => {
           width={event.asset.width}
           alt={event.asset.alt}
           src={event.asset.url}
-          className="cover object-fill"
+          className="w-full"
         />
       )}
       <div className="flex flex-col  p-8.5">
@@ -61,7 +61,7 @@ const EventCard = (event: Event) => {
           width={event.asset.width}
           alt={event.asset.alt}
           src={event.asset.url}
-          className=""
+          className="w-full"
         />
       )}
     </article>
