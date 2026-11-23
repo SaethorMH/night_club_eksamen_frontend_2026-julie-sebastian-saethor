@@ -29,7 +29,7 @@ export default function BookingForm() {
       <form onSubmit={handleSumit} noValidate>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" />
-          {/* 
+          
           <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" />
 
           <input type="number" name="table" placeholder="Table Number" aria-label="Table Nuber" />
@@ -40,7 +40,7 @@ export default function BookingForm() {
 
           <input type="tel" name=" phone" placeholder="Your Contact Number" aria-label="Your Contact Number" />
 
-          <input type="text" name="comment" placeholder="Your Comments" className="md:col-span-2" /> */}
+          <input type="textfield" name="comment" placeholder="Your Comments" className="md:col-span-2" /> 
         </div>
 
         <div className="mt-4 flex justify-end">
