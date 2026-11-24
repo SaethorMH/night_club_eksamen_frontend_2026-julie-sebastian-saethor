@@ -3,7 +3,7 @@ import type { SubmitEvent } from "react";
 import Button from "@/app/components/Button";
 
 export default function CommentsForm() {
-  function handleSumit(event: SubmitEvent<HTMLFormElement>) {
+  function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -13,17 +13,34 @@ export default function CommentsForm() {
 
   return (
     <section className=" bg-black bg-cover bg-center mx-auto w-full max-w-5xl px-6 py-10">
-      <form onSubmit={handleSumit} noValidate>
+      <form onSubmit={handleSubmit} noValidate>
         <div className="grid grid-cols-2 gap-4 ">
-          <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            aria-label="Your Name"
+          />
 
-          <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            aria-label="Your Email"
+          />
 
-          <input type="text" name="comment" placeholder="Your Comments" className="h-30  md:col-span-2" />
+          <textarea
+            name="comment"
+            placeholder="Your Comments"
+            className="h-30  md:col-span-2"
+          />
         </div>
 
         <div className="mt-4 flex justify-end">
-          <button type="submit" className=" border-y uppercase px-8 py-3 text-sm text-gray-400">
+          <button
+            type="submit"
+            className=" border-y uppercase px-8 py-3 text-sm text-gray-400"
+          >
             Submit
           </button>
         </div>
