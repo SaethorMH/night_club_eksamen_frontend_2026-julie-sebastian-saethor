@@ -69,6 +69,11 @@ export async function getComments(id: number = 1) {
   const data = await response.json();
   return data;
 }
+export async function getTestimonials() {
+  const response = await fetch(API_URL + "testimonials");
+  const data = await response.json();
+  return data;
+}
 
 //Assisteret af AI//
 export async function postComment(comment: {

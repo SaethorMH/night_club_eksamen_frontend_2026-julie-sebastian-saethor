@@ -90,8 +90,8 @@ button {
   @apply border-y uppercase px-8 py-3 text-sm text-gray-400;
 }
 
-.cornershape{
+.cornershape {
   background-color: var(--pink);
   border-radius: 4rem;
-  corner-shape:  bevel;
+  corner-shape: bevel;
 }
