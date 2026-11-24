@@ -28,7 +28,7 @@ export async function Forms(formData: FormData) {
       fieldErrors: z.flattenError(validatedFields.error).fieldErrors,
     };
   }
-
+ 
   console.log("Booking approved", validatedFields.data);
 
   return {
@@ -66,6 +66,11 @@ export async function getOneEvent(slug: string) {
 }
 export async function getComments(id: number = 1) {
   const response = await fetch(API_URL + "comments?eventId=" + id);
+  const data = await response.json();
+  return data;
+}
+export async function getTestimonials() {
+  const response = await fetch(API_URL + "testimonials");
   const data = await response.json();
   return data;
 }

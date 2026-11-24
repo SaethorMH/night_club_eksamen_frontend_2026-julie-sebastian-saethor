@@ -2,22 +2,91 @@
 import type { SubmitEvent } from "react";
 import Button from "@/app/components/global/Button";
 import { InfoForms } from "@/app/formSchema/formSchema";
+import { useState } from "react";
+import { email } from "zod";
+import Image from "next/image";
+// import { Table1, Table2, Table3 } from "@/assets/table"
 
 export default function BookingForm() {
+  const [nameErrors, setNameErrors] = useState<string[]>([]);
+  const [emailErrors, setEmailErrors] = useState<string[]>([]);
+  const [tableErrors, setTableErrors] = useState<string[]>([]);
+  const [paxErrors, setPaxErrors] = useState<string[]>([]);
+
   function handleSumit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-
     const result = InfoForms.safeParse({
       name: formData.get("name"),
+      email: formData.get("email"),
+      table: formData.get("table"),
+      pax: formData.get("pax"),
     });
 
     if (!result.success) {
+      const nameErrors = result.error.issues.filter((issue) => issue.path[0] === "name").map((issue) => issue.message);
+
+      const emailErrors = result.error.issues.filter((issue) => issue.path[0] === "email").map((issue) => issue.message);
+
+      const tableErrors = result.error.issues.filter((issue) => issue.path[0] === "table").map((issue) => issue.message);
+
+      const paxErrors = result.error.issues.filter((issue) => issue.path[0] === "pax").map((issue) => issue.message);
+
+      // console.log("Approved guests:", result.data.pax);
+      // console.log("Type:", typeof result.data.pax);
+
+      setNameErrors(nameErrors);
+      setEmailErrors(emailErrors);
+      setTableErrors(tableErrors);
+      setPaxErrors(paxErrors);
+
+      // nameIssue = result.error.issues.find(
+      //   (issue) => issue.path[0] === "name"
+      // );
+      // setNameError(result.error.issues[0]?.message ?? "");
       console.log("Error:", result.error.issues[0]?.message);
+
       return;
     }
-    console.log("Zod resultat:", result);
+
+    {
+      nameErrors.map((error, index) => (
+        <p key={index} className="text-red-400 text-sm">
+          {error}
+        </p>
+      ));
+    }
+    {
+      emailErrors.map((error, index) => (
+        <p key={index} className="text-red-400 text-sm">
+          {error}
+        </p>
+      ));
+    }
+
+    {
+      tableErrors.map((error, index) => (
+        <p key={index} className="text-red-400 text-sm">
+          {error}
+        </p>
+      ));
+    }
+
+    {
+      paxErrors.map((error, index) => (
+        <p key={index} className="text-red-400 text-sm">
+          {error}
+        </p>
+      ));
+    }
+
+    setNameErrors([]);
+    setEmailErrors([]);
+    setTableErrors([]);
+    setPaxErrors([]);
+
+    console.log("Zod resultat:", result.data.name);
 
     console.log("Booking data", Object.fromEntries(formData.entries()));
   }
@@ -28,24 +97,46 @@ export default function BookingForm() {
 
       <form onSubmit={handleSumit} noValidate>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            aria-label="Your Name"
-          />
-          {/* 
-          <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" />
+          <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" />
+          {nameErrors && <p className="text-red-400 text-sm"> {nameErrors}</p>}
 
-          <input type="number" name="table" placeholder="Table Number" aria-label="Table Nuber" />
+          <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" />
+          {emailErrors && <p className="text-red-400 text-sm"> {emailErrors}</p>}
+
+          <select name="table" defaultValue="">
+            <option value="" disabled>
+              Choose a table
+            </option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            {/* {tableErrors && <p className="text-red-400 text-sm"> {tableErrors}</p>} */}
+          </select>
+          {tableErrors && <p className="text-red-400 text-sm"> {tableErrors}</p>}
 
           <input type="number" name="pax" placeholder="Number Of Guests" />
+          {paxErrors && <p className="text-red-400 text-sm"> {paxErrors}</p>}
 
-          <input type="date" name="date" placeholder="Choose Night" aria-label="Choose Night" />
+          {/* <input type="date" name="date" placeholder="Choose Night" aria-label="Choose Night" />
+             {nameError && <p className="text-red-400 text-sm"> {nameError}</p>}
 
           <input type="tel" name=" phone" placeholder="Your Contact Number" aria-label="Your Contact Number" />
+             {nameError && <p className="text-red-400 text-sm"> {nameError}</p>}
 
-          <input type="text" name="comment" placeholder="Your Comments" className="md:col-span-2" /> */}
+          <textarea name="contet" placeholder="Your Comments" className="md:col-span-2" />
+             {nameError && <p className="text-red-400 text-sm"> {nameError}</p>} */}
         </div>
 
         <div className="mt-4 flex justify-end">
