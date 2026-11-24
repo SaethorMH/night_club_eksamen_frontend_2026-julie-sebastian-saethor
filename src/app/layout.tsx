@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react";
+import Image from "next/image";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/global/Header";
+import Footer from "./components/global/Footer";
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",

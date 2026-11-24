@@ -1,6 +1,6 @@
 "use client";
 import type { SubmitEvent } from "react";
-import Button from "@/app/components/Button";
+import Button from "@/app/components/global/Button";
 import { InfoForms } from "@/app/formSchema/formSchema";
 import { useState } from "react";
 import { email } from "zod";

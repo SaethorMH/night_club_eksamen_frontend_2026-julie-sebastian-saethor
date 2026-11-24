@@ -1,6 +1,6 @@
 import EventCard from "./_components/EventCard";
 import { getPaginatedEvents } from "../actions/actions";
-import TitleCard from "../components/TitleCard";
+import TitleCard from "../components/global/TitleCard";
 import PageNav from "./_components/PageNav";
 
 type Props = {
@@ -43,6 +43,7 @@ const EventsPage = async ({ searchParams }: Props) => {
   const { page } = await searchParams;
   const currentPage = Number(page) || 1;
   const events: Event[] = await getPaginatedEvents(currentPage);
+  await new Promise((r) => setTimeout(r, 1000));
   return (
     <>
       <TitleCard title="Events" />

@@ -69,3 +69,23 @@ export async function getComments(id: number = 1) {
   const data = await response.json();
   return data;
 }
+
+//Assisteret af AI//
+export async function postComment(comment: {
+  eventId: number;
+  content: string;
+  name: string;
+  date: string;
+}) {
+  const response = await fetch(API_URL + "comments", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(comment),
+  });
+  if (!response.ok) {
+    throw new Error("Failed to post comment");
+  }
+
+  return response.json();
+}
+//////////////////////
