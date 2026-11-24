@@ -28,6 +28,8 @@ const links = [
 
 export default function Header() {
   const currentPath = usePathname();
+  
+
   const [hovered, setHovered] = useState<string | null>(null);
 
   const activeHref = links.find((l) => l.isActive(currentPath))?.href ?? null;
