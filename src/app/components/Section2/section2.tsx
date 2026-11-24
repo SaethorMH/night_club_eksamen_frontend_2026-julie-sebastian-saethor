@@ -1,7 +1,7 @@
 import { API_URL } from "@/config";
 import Image from "next/image";
 import { Event } from "@/app/events/page";
-
+import Hoverbackground from "./section2hover";
 async function getEvents() {
   const response = await fetch(API_URL + "events");
   const data = await response.json();
@@ -10,10 +10,7 @@ async function getEvents() {
 
 export default async function Section2() {
   const events = await getEvents();
- 
-
  const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
- 
  const Dates = (e: Event) => {
    const d = new Date(e.date);
    const date = d.getDate();
@@ -24,7 +21,17 @@ export default async function Section2() {
     
    });
   
+const CornerShapeLeftTop = {
+  backgroundColor: "var(--pink)",
+  borderTopLeftRadius: "5rem",
+  cornerTopLeftShape: "bevel",
+};
 
+const CornerShapeRightBottom = {
+  backgroundColor: "var(--pink)",
+  borderBottomRightRadius: "5rem",
+  cornerBottomRightShape: "bevel",
+};
    
    return date + " " + month + "  " + time + "";
  };
@@ -34,15 +41,18 @@ export default async function Section2() {
          {events.map(
            (e: Event) =>
              e.isFeatured && (
-               <div key={e.id}>
+               <Hoverbackground key={e.id}>
                  <article className="relative ">
                    <Image height={e.asset.height} width={e.asset.width} alt={e.asset.alt} src={e.asset.url} />
+
                    <section className="flex justify-end  mx-2 absolute bottom-0 bg-(--pink)">
                      <p>{e.title}</p>
                      <p>{Dates(e)}</p>
                    </section>
                  </article>
-               </div>
+               <h1>{e.slug}</h1>
+               
+               </Hoverbackground>
              ),
          )}
        </section>
