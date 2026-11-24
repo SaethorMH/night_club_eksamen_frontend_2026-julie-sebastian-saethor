@@ -62,7 +62,7 @@ export default function Header() {
         </div>
 
         <nav
-          className="hidden @3xl:flex justify-evenly place-items-center gap-10 uppercase"
+          className="hidden @3xl:flex justify-evenly place-items-center gap-10 uppercase "
           onMouseLeave={() => setHovered(null)}
         >
           {links.map((link) => {
@@ -122,12 +122,7 @@ const RollingLink = ({
 
   return (
     <>
-      <motion.a
-        initial="initial"
-        whileHover="hovering"
-        href={href}
-        className="relative block overflow-hidden whitespace-nowrap "
-      >
+      <motion.a initial="initial" whileHover="hovering" href={href} className="relative block overflow-hidden whitespace-pre ">
         <div>
           {children.split("").map((letter, index) => {
             return (
