@@ -69,8 +69,8 @@ export async function getComments(id: number = 1) {
   const data = await response.json();
   return data;
 }
-export async function getTestemonials() {
-  const response = await fetch(API_URL + "testemonials");
+export async function getTestimonials() {
+  const response = await fetch(API_URL + "testimonials");
   const data = await response.json();
   return data;
 }

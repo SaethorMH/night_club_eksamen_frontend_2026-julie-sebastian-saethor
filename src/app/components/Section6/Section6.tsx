@@ -1,8 +1,11 @@
-import { getTestemonials } from "@/app/actions/actions";
+import { getTestimonials } from "@/app/actions/actions";
 import SectionTitle from "../global/SectionTitle";
-import { Asset } from "@/app/events/page";
+
 import TestimonialCard from "./TestimonialCard";
-export interface Testemonial {
+
+import { Asset } from "@/app/events/page";
+import CarouselDots from "./CarouselDots";
+export interface Testimonial {
   id: number;
   name: string;
   content: string;
@@ -12,12 +15,16 @@ export interface Testemonial {
 }
 
 const Section6 = async () => {
-    const testimonials: Testemonial[] = await getTestemonials();
+  const testimonials: Testimonial[] = await getTestimonials();
   return (
-    <section>
+    <section className="h-screen">
       <SectionTitle title="Testimonials" />
-
-      <div>{testimonials.map(())}</div>
+      <div className="flex m-auto h-[60%] w-6xl snap-x snap-mandatory scroll-smooth scrollbar-none overflow-x-auto">
+        {testimonials.map((test) => (
+          <TestimonialCard key={test.id} t={test} />
+        ))}
+      </div>
+      <CarouselDots ids={testimonials.map((t) => t.id)} />{" "}
     </section>
   );
 };
