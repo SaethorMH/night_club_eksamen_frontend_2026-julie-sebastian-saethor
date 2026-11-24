@@ -43,6 +43,7 @@ const EventsPage = async ({ searchParams }: Props) => {
   const { page } = await searchParams;
   const currentPage = Number(page) || 1;
   const events: Event[] = await getPaginatedEvents(currentPage);
+  await new Promise((r) => setTimeout(r, 1000));
   return (
     <>
       <TitleCard title="Events" />

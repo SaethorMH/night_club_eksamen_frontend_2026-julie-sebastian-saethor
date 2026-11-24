@@ -76,7 +76,7 @@ export default function Header() {
               >
                 <RollingLink
                   href={link.href}
-                  ariacurrent={active ? "page" : undefined}
+                  ariacurrent={active ? true : undefined}
                 >
                   {link.label}
                 </RollingLink>
