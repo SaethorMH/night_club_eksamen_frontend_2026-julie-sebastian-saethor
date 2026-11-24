@@ -123,12 +123,7 @@ const RollingLink = ({
 
   return (
     <>
-      <motion.a
-        initial="initial"
-        whileHover="hovering"
-        href={href}
-        className="relative block overflow-hidden whitespace-nowrap "
-      >
+      <motion.a initial="initial" whileHover="hovering" href={href} className="relative block overflow-hidden whitespace-pre  ">
         <div>
           {children.split("").map((letter, index) => {
             return (

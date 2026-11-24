@@ -15,6 +15,7 @@ const MONTHS = [
   "November",
   "December",
 ];
+
 const EventCard = (event: Event) => {
   const d = new Date(event.date);
   const date = d.getDate();

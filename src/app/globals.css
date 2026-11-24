@@ -6,13 +6,15 @@
   --black: oklch(0 0 0);
   --pink: oklch(0.6535 0.2419 9.27);
   --gray: oklch(0.6434 0 0);
-
+--black-gray: oklch(0.0881 0.0046 18.05);
+--buttoncolor1: oklch(0.6417 0.2372 5.45);
+--buttoncolor2: oklch(0.5588 0.2348 329.1);
   --font-body: var(--font-ubuntu);
   --font-header: var(--font-ubuntu);
 }
 
 @layer components {
-  * {
+h1,h2,h3,h4,p,a {
     color: var(--white);
   }
   h1 {
@@ -87,10 +89,5 @@ textarea {
 
 button {
   @apply border-y uppercase px-8 py-3 text-sm text-gray-400;
-}
+} 
 
-.cornershape{
-  background-color: var(--pink);
-  border-radius: 4rem;
-  corner-shape:  bevel;
-}

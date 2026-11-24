@@ -9,12 +9,8 @@ export default function Hero() {
   return (
     <>
       <article className="relative -order-1">
-        <Image
-          src={`/assets/background_images/header_bg_` + rImage + `.jpg`}
-          width={1920}
-          height={900}
-          alt="headerimage"
-        />
+        <div className=" absolute inset-0 bg-(--black) opacity-70 "></div>
+        <Image src={`/assets/background_images/header_bg_` + rImage + `.jpg`} width={1920} height={900} alt="headerimage" />
 
         <HeroContent />
       </article>
