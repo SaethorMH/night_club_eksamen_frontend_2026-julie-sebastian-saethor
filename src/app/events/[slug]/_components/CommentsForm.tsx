@@ -1,6 +1,7 @@
 "use client";
 import type { SubmitEvent } from "react";
 import Button from "@/app/components/Button";
+import { postComment } from "@/app/actions/actions";
 
 export default function CommentsForm() {
   function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
@@ -30,9 +31,10 @@ export default function CommentsForm() {
           />
 
           <textarea
-            name="comment"
+            name="content"
             placeholder="Your Comments"
             className="h-30  md:col-span-2"
+            aria-label="Your Comments"
           />
         </div>
 
