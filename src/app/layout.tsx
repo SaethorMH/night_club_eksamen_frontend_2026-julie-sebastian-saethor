@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
 
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -17,14 +18,23 @@ export const metadata: Metadata = {
   icons: "assets/icons/favicon.png",
 };
 
+
+
+
+
+
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${ubuntu.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
+   
+      <html lang="en" className={`${ubuntu.variable} h-full antialiased`}>
+        <body className="min-h-full flex flex-col">
+         
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    
   );
 }

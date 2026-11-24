@@ -42,14 +42,14 @@ export default function Footer() {
             <div className=" @max-3xl:hidden @3xl:mx-auto mt-1 ">
               <h4 className="uppercase text-(--pink)">Recent Posts</h4>
               <div className="flex items-start ">
-                <AiOutlineX className=" mt-6" />
+                <AiOutlineX className=" mt-6 text-(--pink)" />
                 <div className="max-inline-3xs m-5">
                   <p>It is a long established fact that a reader will be distracted by the readable... </p>
                   <p className="text-(--pink) ">5 hours ago</p>
                 </div>
               </div>
               <div className="flex items-start ">
-                <AiOutlineX className=" mt-6" />
+                <AiOutlineX className=" mt-6 text-(--pink)" />
                 <div className="max-inline-3xs m-5">
                   <p>It is a long established fact that a reader will be distracted by the readable... </p>
                   <p className="text-(--pink)">5 hours ago</p>
