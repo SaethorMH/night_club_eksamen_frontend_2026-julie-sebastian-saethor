@@ -1,6 +1,6 @@
 "use client";
 import type { SubmitEvent } from "react";
-import Button from "@/app/components/Button";
+import Button from "@/app/components/global/Button";
 import { postComment } from "@/app/actions/actions";
 
 export default function CommentsForm() {

@@ -2,7 +2,7 @@ import EventDetailsSection from "./_components/EventDetailsSection";
 import CommentsSection from "./_components/CommentsSection";
 import { getOneEvent } from "@/app/actions/actions";
 import { Event } from "../page";
-import TitleCard from "@/app/components/TitleCard";
+import TitleCard from "@/app/components/global/TitleCard";
 import CommentsForm from "./_components/CommentsForm";
 
 type Props = {

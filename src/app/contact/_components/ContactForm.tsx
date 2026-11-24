@@ -1,6 +1,6 @@
 "use client";
 import type { SubmitEvent } from "react";
-import Button from "@/app/components/Button";
+import Button from "@/app/components/global/Button";
 
 export default function ContactForm() {
   function handleSumit(event: SubmitEvent<HTMLFormElement>) {
@@ -15,9 +15,19 @@ export default function ContactForm() {
     <section className=" bg-black bg-cover bg-center mx-auto w-full max-w-5xl px-6 py-10">
       <form onSubmit={handleSumit} noValidate>
         <div className="grid grid-cols-2 gap-4 ">
-          <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            aria-label="Your Name"
+          />
 
-          <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            aria-label="Your Email"
+          />
 
           <input
             type="text"

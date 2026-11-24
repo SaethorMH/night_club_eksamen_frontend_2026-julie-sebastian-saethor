@@ -1,6 +1,6 @@
 "use client";
 import type { SubmitEvent } from "react";
-import Button from "@/app/components/Button";
+import Button from "@/app/components/global/Button";
 import { InfoForms } from "@/app/formSchema/formSchema";
 
 export default function BookingForm() {
@@ -28,7 +28,12 @@ export default function BookingForm() {
 
       <form onSubmit={handleSumit} noValidate>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            aria-label="Your Name"
+          />
           {/* 
           <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" />
 

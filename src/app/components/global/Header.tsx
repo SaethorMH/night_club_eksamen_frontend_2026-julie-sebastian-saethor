@@ -28,7 +28,6 @@ const links = [
 
 export default function Header() {
   const currentPath = usePathname();
-  
 
   const [hovered, setHovered] = useState<string | null>(null);
 

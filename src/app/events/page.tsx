@@ -1,6 +1,6 @@
 import EventCard from "./_components/EventCard";
 import { getPaginatedEvents } from "../actions/actions";
-import TitleCard from "../components/TitleCard";
+import TitleCard from "../components/global/TitleCard";
 import PageNav from "./_components/PageNav";
 
 type Props = {
