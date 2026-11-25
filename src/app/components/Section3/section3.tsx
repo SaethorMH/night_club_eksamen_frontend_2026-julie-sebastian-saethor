@@ -1,5 +1,6 @@
 import { API_URL } from "@/config";
 import Image from "next/image";
+import SectionTitle from "../global/SectionTitle";
 import * as motion from "motion/react-client";
 
 export interface Asset {
@@ -15,14 +16,14 @@ export interface Gallery {
   description: string;
 }
 
-                                // AI
+                                
 async function getGallery():Promise<Gallery[]> {
   const response = await fetch(API_URL + "gallery");
   const data = await response.json();
   return data;
 }
 
-// AI
+
 const spans = [
   "col-span-3",
   "col-span-3",
@@ -51,14 +52,21 @@ export default async function Section3() {
   
   
   return (
-    // AI
-    <section className="grid grid-cols-12 grid-rows-2 gap-1 h-136 p-4">
-      {gallery.map((g, i) => (
-        // AI
-        <div key={g.id} className={`relative overflow-hidden ${spans[i]}`}>
-          <motion.div initial="initial" whileHover="hovering">
-            <Image key={g.id} src={API_URL + g.asset.url} alt={g.asset.alt} fill className="object-cover" />
-
+    <>
+      <SectionTitle title="Night club Gallery" />
+      <section className="grid grid-cols-12 grid-rows-2 gap-1 h-136 p-4">
+        {gallery.map((g, i) => (
+          <motion.section key={g.id} className={`relative overflow-hidden ${spans[i]}`} initial="initial" whileHover="hovering" whileInView="inview" viewport={{ once: true }}>
+            <motion.div
+              variants={{
+                initial: { x: -200, opacity: 0 },
+                inview: { x: 0, opacity: 1 },
+              }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="absolute inset-0"
+            >
+              <Image src={API_URL + g.asset.url} alt={g.asset.alt} fill className="object-cover" />
+            </motion.div>
             <motion.div
               variants={{
                 initial: { opacity: 0, y: 30 },
@@ -83,14 +91,14 @@ export default async function Section3() {
                   }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div style={CornerShapeRightBottom} className="size-20 rotate-180 absolute bottom-0 right-0" ></div>
+                  <div style={CornerShapeRightBottom} className="size-20 rotate-180 absolute bottom-0 right-0"></div>
                 </motion.div>
               </motion.div>
             </motion.div>
-          </motion.div>
-        </div>
-      ))}
-    </section>
+          </motion.section>
+        ))}
+      </section>
+    </>
   );
 }
 

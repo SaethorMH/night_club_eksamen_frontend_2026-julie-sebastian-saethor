@@ -1,7 +1,7 @@
 import { API_URL } from "@/config";
 import Image from "next/image";
 import { Event } from "@/app/events/page";
-
+import SectionTitle from "../global/SectionTitle";
 import * as motion from "motion/react-client";
 
 async function getEvents() {
@@ -35,13 +35,14 @@ export default async function Section2() {
     return date + " " + month + "   " + time + " ";
   };
   return (
-    <article className="bg-[url('/assets/background_images/slider_bg_overlay.png')]">
-      <section className="flex justify-center gap-5 mx-auto m-5 ">
-        {events.map(
-          (e: Event) =>
-            e.isFeatured && (
-              <div key={e.id}>
-               
+    <>
+      <SectionTitle title="Featured events" />
+      <article className="bg-[url('/assets/background_images/slider_bg_overlay.png')]">
+        <section className="flex justify-center gap-5 mx-auto m-5 ">
+          {events.map(
+            (e: Event) =>
+              e.isFeatured && (
+                <div key={e.id}>
                   <motion.div initial="initial" whileHover="hovering" className="relative">
                     <Image height={e.asset.height} width={e.asset.width} alt={e.asset.alt} src={e.asset.url} />
 
@@ -92,11 +93,11 @@ export default async function Section2() {
                     <p>{Dates(e)}</p>
                     <p>{e.location}</p>
                   </section>
-                
-              </div>
-            ),
-        )}
-      </section>
-    </article>
+                </div>
+              ),
+          )}
+        </section>
+      </article>
+    </>
   );
 }
