@@ -35,13 +35,59 @@ const spans = [
 export default async function Section3() {
   const gallery = await getGallery();
 
+  const CornerShapeLeftTop = {
+    backgroundColor: "var(--pink)",
+    borderTopLeftRadius: "5rem",
+    cornerTopLeftShape: "bevel",
+  };
+
+  const CornerShapeRightBottom = {
+    backgroundColor: "var(--pink)",
+    borderBottomRightRadius: "5rem",
+    cornerBottomRightShape: "bevel",
+  };
+  
+  
+  
+  
   return (
-                                 // AI
+    // AI
     <section className="grid grid-cols-12 grid-rows-2 gap-1 h-136 p-4">
       {gallery.map((g, i) => (
-                                            // AI
+        // AI
         <div key={g.id} className={`relative overflow-hidden ${spans[i]}`}>
-          <Image src={API_URL + g.asset.url} alt={g.asset.alt} fill className="object-cover" />
+          <motion.div initial="initial" whileHover="hovering">
+            <Image key={g.id} src={API_URL + g.asset.url} alt={g.asset.alt} fill className="object-cover" />
+
+            <motion.div
+              variants={{
+                initial: { opacity: 0, y: 30 },
+                hovering: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-0 bg-(--black)/50 border-y-2 border-border-header"
+            >
+              <motion.div
+                variants={{
+                  initial: { opacity: 0 },
+                  hovering: { opacity: 1 },
+                }}
+                transition={{ duration: 0.2 }}
+              >
+                <div style={CornerShapeLeftTop} className=" size-20 rotate-180 "></div>
+
+                <motion.div
+                  variants={{
+                    initial: { opacity: 0 },
+                    hovering: { opacity: 1 },
+                  }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div style={CornerShapeRightBottom} className="size-20 rotate-180 absolute bottom-0 right-0" ></div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       ))}
     </section>

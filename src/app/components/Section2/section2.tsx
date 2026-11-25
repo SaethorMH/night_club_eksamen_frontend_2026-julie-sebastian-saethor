@@ -41,7 +41,7 @@ export default async function Section2() {
           (e: Event) =>
             e.isFeatured && (
               <div key={e.id}>
-                <article className="relative ">
+               
                   <motion.div initial="initial" whileHover="hovering" className="relative">
                     <Image height={e.asset.height} width={e.asset.width} alt={e.asset.alt} src={e.asset.url} />
 
@@ -92,7 +92,7 @@ export default async function Section2() {
                     <p>{Dates(e)}</p>
                     <p>{e.location}</p>
                   </section>
-                </article>
+                
               </div>
             ),
         )}
