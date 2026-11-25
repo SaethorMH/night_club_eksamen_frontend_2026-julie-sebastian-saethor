@@ -12,7 +12,9 @@ export default function BookingForm() {
   const [emailErrors, setEmailErrors] = useState<string[]>([]);
   const [tableErrors, setTableErrors] = useState<string[]>([]);
   const [paxErrors, setPaxErrors] = useState<string[]>([]);
-
+  const [dateErrors, setDateErrors] = useState<string[]>([]);
+  const [phoneErrors, setPhoneErrors] = useState<string[]>([]);
+  const [commentErrors, setCommentErrors] = useState<string[]>([]);
   function handleSumit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -22,17 +24,18 @@ export default function BookingForm() {
       email: formData.get("email"),
       table: formData.get("table"),
       pax: formData.get("pax"),
+      date: formData.get("date"),
+      phone: formData.get("phone"),
     });
 
     if (!result.success) {
       const nameErrors = result.error.issues.filter((issue) => issue.path[0] === "name").map((issue) => issue.message);
-
       const emailErrors = result.error.issues.filter((issue) => issue.path[0] === "email").map((issue) => issue.message);
-
       const tableErrors = result.error.issues.filter((issue) => issue.path[0] === "table").map((issue) => issue.message);
-
       const paxErrors = result.error.issues.filter((issue) => issue.path[0] === "pax").map((issue) => issue.message);
-
+      const dateErrors = result.error.issues.filter((issue) => issue.path[0] === "date").map((issue) => issue.message);
+      const phoneErrors = result.error.issues.filter((issue) => issue.path[0] === "phone").map((issue) => issue.message);
+      const commentErrors = result.error.issues.filter((issue) => issue.path[0] === "comment").map((issue) => issue.message);
       // console.log("Approved guests:", result.data.pax);
       // console.log("Type:", typeof result.data.pax);
 
@@ -40,6 +43,9 @@ export default function BookingForm() {
       setEmailErrors(emailErrors);
       setTableErrors(tableErrors);
       setPaxErrors(paxErrors);
+      setDateErrors(dateErrors);
+      setPhoneErrors(phoneErrors);
+      setCommentErrors(commentErrors);
 
       // nameIssue = result.error.issues.find(
       //   (issue) => issue.path[0] === "name"
@@ -80,11 +86,35 @@ export default function BookingForm() {
         </p>
       ));
     }
+    {
+      dateErrors.map((error, index) => (
+        <p key={index} className="text-red-400 text-sm">
+          {error}
+        </p>
+      ));
+    }
+    {
+      phoneErrors.map((error, index) => (
+        <p key={index} className="text-red-400 text-sm">
+          {error}
+        </p>
+      ));
+    }
+    {
+      commentErrors.map((error, index) => (
+        <p key={index} className="text-red-400 text-sm">
+          {error}
+        </p>
+      ));
+    }
 
     setNameErrors([]);
     setEmailErrors([]);
     setTableErrors([]);
     setPaxErrors([]);
+    setDateErrors([]);
+    setPhoneErrors([]);
+    setCommentErrors([]);
 
     console.log("Zod resultat:", result.data.name);
 
@@ -129,14 +159,14 @@ export default function BookingForm() {
           <input type="number" name="pax" placeholder="Number Of Guests" />
           {paxErrors && <p className="text-red-400 text-sm"> {paxErrors}</p>}
 
-          {/* <input type="date" name="date" placeholder="Choose Night" aria-label="Choose Night" />
-             {nameError && <p className="text-red-400 text-sm"> {nameError}</p>}
+          <input type="date" name="date" placeholder="Choose Night" aria-label="Choose Night" />
+          {dateError && <p className="text-red-400 text-sm"> {dateError}</p>}
 
-          <input type="tel" name=" phone" placeholder="Your Contact Number" aria-label="Your Contact Number" />
-             {nameError && <p className="text-red-400 text-sm"> {nameError}</p>}
+          <input type="tel" name="phone" placeholder="Your Contact Number" aria-label="Your Contact Number" />
+          {phoneError && <p className="text-red-400 text-sm"> {phoneError}</p>}
 
-          <textarea name="contet" placeholder="Your Comments" className="md:col-span-2" />
-             {nameError && <p className="text-red-400 text-sm"> {nameError}</p>} */}
+          <textarea name="comment" placeholder="Your Comments" className="md:col-span-2" />
+          {commentError && <p className="text-red-400 text-sm"> {commentError}</p>}
         </div>
 
         <div className="mt-4 flex justify-end">
