@@ -12,13 +12,12 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import styles from "./AudioPlayer.module.css";
 
 export interface Track {
   id: number;
   title: string;
-  src: string; // e.g. "/audio/you-belong.mp3"
-  cover: string; // e.g. "/covers/guitar.jpg"
+  src: string;
+  cover: string;
 }
 
 const formatTime = (t: number) => {
