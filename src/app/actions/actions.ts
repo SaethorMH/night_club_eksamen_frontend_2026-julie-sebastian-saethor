@@ -10,7 +10,6 @@ export async function Forms(formData: FormData) {
   const date = formData.get("date");
   const phone = formData.get("phone");
 
-
   const validatedFields = InfoForms.safeParse({
     name,
     email,
@@ -27,7 +26,7 @@ export async function Forms(formData: FormData) {
       fieldErrors: z.flattenError(validatedFields.error).fieldErrors,
     };
   }
- 
+
   console.log("Booking approved", validatedFields.data);
 
   return {
@@ -72,6 +71,19 @@ export async function getTestimonials() {
   const response = await fetch(API_URL + "testimonials");
   const data = await response.json();
   return data;
+}
+export async function getNewsletters() {
+  const response = await fetch(API_URL + "newsletters");
+  const data = await response.json();
+  return data;
+}
+export async function postNewsletters(email: string) {
+  const response = await fetch(API_URL + "newsletters", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: email }),
+  });
+  return response.ok;
 }
 
 //Assisteret af AI//
