@@ -56,6 +56,10 @@
     font-weight: 400;
     line-height: 2rem;
   }
+  input, select,
+textarea {
+  @apply outline-(--white) outline text-sm p-3 focus:outline-(--pink) focus:outline-3 focus:bg-gray-900 text-gray-100;
+}
 }
 
 @theme inline {
@@ -80,18 +84,20 @@ body {
   --font-body: var(--font-ubuntu);
 }
 
-input,
-select,
-textarea {
-  @apply outline-(--white) outline text-sm p-3 focus:outline-(--pink) focus:outline-3 focus:bg-gray-900;
-}
+
 
 button {
   @apply border-y uppercase px-8 py-3 text-sm text-gray-400;
 }
 
 .cornershape {
-  background-color: var(--pink);
+  background-color: var(--pink); 
   border-radius: 4rem;
   corner-shape: bevel;
+}
+
+/*Lavet med AI */
+
+.booking-date:invalid:not(:focus)::-webkit-datetime-edit {
+  color: transparent;
 }

@@ -4,8 +4,6 @@ import Button from "@/app/components/global/Button";
 import { InfoForms } from "@/app/formSchema/formSchema";
 import { useState } from "react";
 import { email } from "zod";
-import Image from "next/image";
-// import { Table1, Table2, Table3 } from "@/assets/table"
 
 export default function BookingForm() {
   const [nameErrors, setNameErrors] = useState<string[]>([]);
@@ -36,21 +34,13 @@ export default function BookingForm() {
       const dateErrors = result.error.issues.filter((issue) => issue.path[0] === "date").map((issue) => issue.message);
       const phoneErrors = result.error.issues.filter((issue) => issue.path[0] === "phone").map((issue) => issue.message);
 
-      // console.log("Approved guests:", result.data.pax);
-      // console.log("Type:", typeof result.data.pax);
-
       setNameErrors(nameErrors);
       setEmailErrors(emailErrors);
       setTableErrors(tableErrors);
       setPaxErrors(paxErrors);
       setDateErrors(dateErrors);
       setPhoneErrors(phoneErrors);
-    
 
-      // nameIssue = result.error.issues.find(
-      //   (issue) => issue.path[0] === "name"
-      // );
-      // setNameError(result.error.issues[0]?.message ?? "");
       console.log("Error:", result.error.issues[0]?.message);
 
       return;
@@ -117,7 +107,7 @@ export default function BookingForm() {
     <section className=" bg-black bg-cover bg-center mx-auto w-full max-w-5xl px-6 py-10">
       <h2 className="font-bold py-5">Book a table</h2>
 
-      <form onSubmit={handleSumit} noValidate className="grid grid-cols-1 gap-4 md:grid-cols-2 md:grid-rows-4">
+      <form onSubmit={handleSumit} noValidate className="grid grid-cols-1 gap-4 md:grid-cols-2 md:grid-rows-4 text-gray-600">
         <div className="grid grid-cols-1">
           <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" />
           {nameErrors && <p className="text-red-400 text-sm"> {nameErrors}</p>}
@@ -156,23 +146,22 @@ export default function BookingForm() {
           {paxErrors && <p className="text-red-400 text-sm"> {paxErrors}</p>}
         </div>
         <div className="grid grid-cols-1">
-          <input type="date" name="date" placeholder="Choose Night" aria-label="Choose Night" />
+          <input type="date" name="date" aria-label="Choose Night"  />
 
-         {dateErrors && <p className="text-red-400 text-sm"> {dateErrors}</p>}
+          {dateErrors && <p className="text-red-400 text-sm"> {dateErrors}</p>}
         </div>
         <div className="grid grid-cols-1">
           <input type="tel" name="phone" placeholder="Your Contact Number" aria-label="Your Contact Number" />
 
-           {phoneErrors && <p className="text-red-400 text-sm"> {phoneErrors}</p>}
+          {phoneErrors && <p className="text-red-400 text-sm"> {phoneErrors}</p>}
         </div>
 
-        <textarea name="comment" placeholder="Your Comments" className="md:col-span-2"/>
-<span></span>
+        <textarea name="comment" placeholder="Your Comments" className="md:col-span-2" />
+        <span></span>
 
         <div className=" flex flex-row place-self-end">
           <button type="submit">Reseve table</button>
         </div>
-
       </form>
     </section>
   );

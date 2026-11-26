@@ -18,7 +18,6 @@ export async function Forms(formData: FormData) {
     pax,
     date,
     phone,
-  
   });
 
   if (!validatedFields.success) {

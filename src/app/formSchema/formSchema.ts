@@ -13,5 +13,27 @@ export const InfoForms = z.object({
   pax: z.coerce.number().int("Please enter a whole number.").min(1, "There must be at least 1 guest"),
    phone: z.string().trim().min(8, "Use a phone number, at least 8 digits"),
    date: z.iso.date(),
-
 });
+
+
+
+export const ContactForms = z.object({
+  name: z
+    .string()
+    .trim()
+    .regex(/^[\p{L} ]+$/u, "Use only letters and spaces. ")
+    .min(2, "Use at least 2 letters."),
+  email: z.email("Please enter a valid email address"),
+ 
+});
+
+export const NewsletterForms = z.object({
+  name: z
+    .string()
+    .trim()
+    .regex(/^[\p{L} ]+$/u, "Use only letters and spaces. ")
+    .min(2, "Use at least 2 letters."),
+  email: z.email("Please enter a valid email address"),
+ 
+});
+
