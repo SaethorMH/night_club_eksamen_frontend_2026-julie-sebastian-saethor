@@ -86,12 +86,13 @@ textarea {
   @apply outline-(--white) outline text-sm p-3 focus:outline-(--pink) focus:outline-3 focus:bg-gray-900;
 }
 
-button {
-  @apply border-y uppercase px-8 py-3 text-sm text-gray-400;
-}
+  button {
+    @apply border-y uppercase px-8 py-3 text-sm text-gray-400;
+  }
 
-.cornershape {
-  background-color: var(--pink);
-  border-radius: 4rem;
-  corner-shape: bevel;
+  .cornershape {
+    background-color: var(--pink);
+    border-radius: 4rem;
+    corner-shape: bevel;
+  }
 }
