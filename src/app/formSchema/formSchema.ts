@@ -13,5 +13,5 @@ export const InfoForms = z.object({
   pax: z.coerce.number().int("Please enter a whole number.").min(1, "There must be at least 1 guest"),
    phone: z.string().trim().min(8, "Use a phone number, at least 8 digits"),
    date: z.iso.date(),
-   comment: z.string(),
+
 });
