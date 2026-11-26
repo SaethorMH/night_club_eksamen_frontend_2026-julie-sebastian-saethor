@@ -81,7 +81,7 @@ body {
 }
 
 input,
-select {
+select,
 textarea {
   @apply outline-(--white) outline text-sm p-3 focus:outline-(--pink) focus:outline-3 focus:bg-gray-900;
 }
