@@ -2,7 +2,7 @@ import { API_URL } from "@/config";
 import Image from "next/image";
 import SectionTitle from "../global/SectionTitle";
 import * as motion from "motion/react-client";
-
+import Modalbox from "./modalbox";
 export interface Asset {
   url: string;
   width: number;
@@ -55,8 +55,10 @@ export default async function Section3() {
     <>
       <SectionTitle title="Night club Gallery" />
       <section className="grid grid-cols-12 grid-rows-2 gap-1 h-136 p-4">
-        {gallery.map((g, i) => (
+        {gallery.slice(0,spans.length).map((g, i) => (
           <motion.section key={g.id} className={`relative overflow-hidden ${spans[i]}`} initial="initial" whileHover="hovering" whileInView="inview" viewport={{ once: true }}>
+             <button command="show-modal" commandfor={`modal-${g.id}`}></button> 
+
             <motion.div
               variants={{
                 initial: { x: -200, opacity: 0 },
@@ -95,6 +97,7 @@ export default async function Section3() {
                 </motion.div>
               </motion.div>
             </motion.div>
+             <Modalbox g={g} /> 
           </motion.section>
         ))}
       </section>
