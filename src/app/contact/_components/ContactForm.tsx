@@ -48,7 +48,7 @@ export default function ContactForm() {
 
     console.log("Zod resultat:", result.data.name);
 
-    console.log("Booking data", Object.fromEntries(formData.entries()));
+    console.log("comment data", Object.fromEntries(formData.entries()));
   }
 
   return (

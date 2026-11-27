@@ -24,6 +24,7 @@ export default function NewsLetter() {
         .filter((issue) => issue.path[0] === "email")
         .map((issue) => issue.message);
 
+      
       setEmailErrors(emailErrors);
       // console.log("Error:", result.error.issues[0]?.message);
       return;
