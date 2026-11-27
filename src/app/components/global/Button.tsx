@@ -1,15 +1,5 @@
-const colors = {
-  primary: "bg-accentDark hover:bg-accentMedium text-background",
-  secondary:
-    "bg-accentLight hover:bg-accentDark hover:text-background text-text",
-};
-
-const Button = ({ text, className = "cursor-pointer", color = "primary" }) => {
-  return (
-    <button className={`font-bold w-full h-8  ${colors[color]} ${className}`}>
-      {text}
-    </button>
-  );
+const Button = ({ text }: { text: string }) => {
+  return <button className="border-y uppercase px-8 py-3 text-sm text-gray-400">{text}</button>;
 };
 
 export default Button;
