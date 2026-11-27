@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { PiCallBell } from "react-icons/pi";
 import { ReactNode } from "react";
 import { LiaGlassCheersSolid } from "react-icons/lia";
+import SectionTitle from "../global/SectionTitle";
 const CornerShapeLeftTop = {
   backgroundColor: "var(--pink)",
   borderTopLeftRadius: "5rem",
@@ -94,21 +95,24 @@ function Hover({ text, alt, src, icons, intro, reactIcons }: { text: string; alt
 }
 export default function section1Homepage() {
   return (
-    <article className="bg-[url('/assets/background_images/pattern_bg.jpg')] ">
-      <section className=" flex justify-between gap-10 m-20 ">
-        <Hover
-          src="/assets/content/thumb1.jpg"
-          alt="dinnertable"
-          intro="Night club"
-          text="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by 
+    <>
+      <SectionTitle title="Welcome in nightclub" />
+      <article className="bg-[url('/assets/background_images/pattern_bg.jpg')] ">
+        <section className=" flex justify-between gap-10 m-20 ">
+          <Hover
+            src="/assets/content/thumb1.jpg"
+            alt="dinnertable"
+            intro="Night club"
+            text="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by 
 injected humour, or randomised words which dont look even slightly believable. "
-          icons={["/assets/icons/favicon.png"]}
-          reactIcons={[]}
-        />
+            icons={["/assets/icons/favicon.png"]}
+            reactIcons={[]}
+          />
 
-        <Hover src="/assets/content/reastaurant_1.jpg" alt="dinerhands" intro="Restaurant" text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution." icons={[]} reactIcons={[<PiCallBell className="mx-auto border-2 border-border-header size-fit p-5 " />]} />
-        <Hover src="/assets/content/thumb2.jpg" alt="club" intro="Bar" text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin." icons={[]} reactIcons={[<LiaGlassCheersSolid className="mx-auto border-2 border-border-header size-[70] p-5" />]} />
-      </section>
-    </article>
+          <Hover src="/assets/content/reastaurant_1.jpg" alt="dinerhands" intro="Restaurant" text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution." icons={[]} reactIcons={[<PiCallBell className="mx-auto border-2 border-border-header size-fit p-5 " />]} />
+          <Hover src="/assets/content/thumb2.jpg" alt="club" intro="Bar" text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin." icons={[]} reactIcons={[<LiaGlassCheersSolid className="mx-auto border-2 border-border-header size-[70] p-5" />]} />
+        </section>
+      </article>
+    </>
   );
 }
