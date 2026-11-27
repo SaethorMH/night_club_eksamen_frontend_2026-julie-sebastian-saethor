@@ -103,3 +103,21 @@ export async function postComment(comment: {
   });
   return response.ok;
 }
+export async function postContact(contact: {
+  name: string;
+  content: string;
+  email: string;
+  date: string;
+}) {
+  const response = await fetch(API_URL + "contact_messages", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: contact.name,
+      content: contact.content,
+      email: contact.email,
+      date: contact.date,
+    }),
+  });
+  return response.ok;
+}
