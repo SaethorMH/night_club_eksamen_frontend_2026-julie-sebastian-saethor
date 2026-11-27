@@ -20,11 +20,8 @@ export default function NewsLetter() {
     });
 
     if (!result.success) {
-      const emailErrors = result.error.issues
-        .filter((issue) => issue.path[0] === "email")
-        .map((issue) => issue.message);
+      const emailErrors = result.error.issues.filter((issue) => issue.path[0] === "email").map((issue) => issue.message);
 
-      
       setEmailErrors(emailErrors);
       // console.log("Error:", result.error.issues[0]?.message);
       return;
@@ -43,55 +40,35 @@ export default function NewsLetter() {
     // console.log("Email", Object.fromEntries(newsletterForms.entries()));
 
     const ok = await postNewsletters(result.data.email);
-    setMessage(
-      ok
-        ? "You're subscribed!"
-        : "Could not subscribe (maybe already signed up).",
-    );
+    setMessage(ok ? "You're subscribed!" : "Could not subscribe (maybe already signed up).");
     if (ok) form.reset();
   }
 
   return (
     <section
-      className=" bg-black bg-cover bg-center mx-auto w-full max-w-5xl px-6 py-10 
+      className=" bg-black bg-cover bg-center px-6 py-6
      g-6 flex flex-col items-center"
     >
       <div className="min-h-10 pt-1 flex flex-col text-center g-10">
-        <h2 className="md:text-sm"> Want the latest night club news</h2>
-        <h3 className="text-sm">
-          Subscribe to our newsletter and never miss an{" "}
-          <span className="text-(--pink)">Event </span>
+        <h2 className="text-2xl"> Want the latest night club news</h2>
+        <h3 className="text-base p-2">
+          Subscribe to our newsletter and never miss an <span className="text-(--pink)">Event </span>
         </h3>
       </div>
 
-      <form
-        onSubmit={handleSumit}
-        noValidate
-        className="mx-auto w-full max-w-md flex flex-col gap-4"
-      >
-        <div className="grid grid-cols-1">
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter Your Email"
-            aria-label="Your Email"
-            className=" border-y-0 border"
-          />
-          <div className="min-h-10 pt-1">
-            {emailErrors && (
-              <p className="text-red-400 text-sm"> {emailErrors}</p>
-            )}
+      <form onSubmit={handleSumit} noValidate className="mx-auto w-full  flex flex-col p-10">
+        <article className="flex flex-row gap-7 justify-center">
+          <input type="email" name="email" placeholder="Enter Your Email" aria-label="Your Email" className=" border-b-2 border-0 indent-3 placeholder:text-(--white) w-120 " />
+
+          <button type="submit" className=" border-y uppercase px-8 py-3 text-sm hover:cursor-pointer place-self-end text-(--white)">
+            SUBSCRIBE
+          </button>
+      
+        </article>
+            <div className="min-h-10 pt-1">
+            {emailErrors && <p className="text-red-400 text-sm place-self-start"> {emailErrors}</p>}
+            {message && <p className="text-sm place-self-start">{message}</p>}
           </div>
-          <div className=" flex flex-row place-self-end">
-            <button
-              type="submit"
-              className=" border-y uppercase px-8 py-3 text-sm hover:cursor-pointer text-(--white)"
-            >
-              SUBSCRIBE
-            </button>
-          </div>
-        </div>
-        {message && <p className="text-sm place-self-end">{message}</p>}
       </form>
     </section>
   );

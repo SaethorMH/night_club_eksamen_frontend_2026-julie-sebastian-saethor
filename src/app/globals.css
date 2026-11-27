@@ -7,8 +7,7 @@
   --pink: oklch(0.6535 0.2419 9.27);
   --gray: oklch(0.6434 0 0);
 
-  --font-body: var(--font-ubuntu);
-  --font-header: var(--font-ubuntu);
+  --font: var(--font-ubuntu);
 }
 
 @layer components {
@@ -22,7 +21,7 @@
     color: var(--white);
   }
   h1 {
-    font-family: var(--font-header);
+    font-family: var(--font);
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: 7.5%;
@@ -30,7 +29,7 @@
     text-transform: uppercase;
   }
   h2 {
-    font-family: var(--font-header);
+    font-family: var(--font);
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 2%;
@@ -39,32 +38,30 @@
   }
 
   h3 {
-    font-family: var(--font-body);
+    font-family: var(--font);
     font-size: 1.125rem;
     font-weight: bold;
     line-height: 2rem;
     letter-spacing: 2%;
   }
   h4 {
-    font-family: var(--font-body);
+    font-family: var(--font);
     font-size: 1.25rem;
     font-weight: 400;
   }
   p {
-    font-family: var(--font-body);
+    font-family: var(--font);
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: 2%;
   }
   .ghost {
-    font-family: var(--font-body);
+    font-family: var(--font);
     font-size: 1rem;
     font-weight: 400;
     line-height: 2rem;
   }
-  input,
-  select,
-  textarea {
+  .input {
     @apply outline-(--white) outline text-sm p-3 focus:outline-(--pink) focus:outline-3 focus:bg-gray-900 text-gray-100;
   }
 }

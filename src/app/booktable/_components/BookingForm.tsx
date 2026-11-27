@@ -109,17 +109,17 @@ export default function BookingForm() {
 
       <form onSubmit={handleSumit} noValidate className="grid grid-cols-1 gap-4 md:grid-cols-2 md:grid-rows-4 text-gray-600">
         <div className="grid grid-cols-1">
-          <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" />
+          <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" className="input" />
           {nameErrors && <p className="text-red-400 text-sm"> {nameErrors}</p>}
         </div>
 
         <div className="grid grid-cols-1">
-          <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" />
+          <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" className="input" />
           {emailErrors && <p className="text-red-400 text-sm"> {emailErrors}</p>}
         </div>
         <div className="grid grid-cols-1">
-          <select name="table" defaultValue="">
-            <option value="" disabled>
+          <select name="table" defaultValue="" className="input text-gray-400">
+            <option value="" disabled className="text-gray-400">
               Choose a table
             </option>
             <option value="1">1</option>
@@ -142,21 +142,21 @@ export default function BookingForm() {
           {tableErrors && <p className="text-red-400 text-sm"> {tableErrors}</p>}
         </div>
         <div className="grid grid-cols-1">
-          <input type="number" name="pax" placeholder="Number Of Guests" />
+          <input type="number" name="pax" placeholder="Number Of Guests" className="input" />
           {paxErrors && <p className="text-red-400 text-sm"> {paxErrors}</p>}
         </div>
         <div className="grid grid-cols-1">
-          <input type="date" name="date" aria-label="Choose Night"  />
+          <input type="date" name="date" aria-label="Choose Night" placeholder="Choose Night" className="input text-gray-400" />
 
           {dateErrors && <p className="text-red-400 text-sm"> {dateErrors}</p>}
         </div>
         <div className="grid grid-cols-1">
-          <input type="tel" name="phone" placeholder="Your Contact Number" aria-label="Your Contact Number" />
+          <input type="tel" name="phone" placeholder="Your Contact Number" aria-label="Your Contact Number" className="input" />
 
           {phoneErrors && <p className="text-red-400 text-sm"> {phoneErrors}</p>}
         </div>
 
-        <textarea name="comment" placeholder="Your Comments" className="md:col-span-2" />
+        <textarea name="comment" placeholder="Your Comments" className="md:col-span-2 input" />
         <span></span>
 
         <div className=" flex flex-row place-self-end">
