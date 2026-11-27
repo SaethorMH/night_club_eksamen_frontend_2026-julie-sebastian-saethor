@@ -16,12 +16,12 @@ const EventDetails = async ({ params }: Props) => {
   await new Promise((r) => setTimeout(r, 1000));
 
   return (
-    <>
+    <section className="grid grid-cols-subgrid col-[full] bg-fixed bg-cover bg-[url(/assets/background_images/pattern_bg.jpg)]">
       <TitleCard title={event.title} />
       <EventDetailsSection event={event} />
       <CommentsSection id={event.id} />
       <CommentsForm />
-    </>
+    </section>
   );
 };
 

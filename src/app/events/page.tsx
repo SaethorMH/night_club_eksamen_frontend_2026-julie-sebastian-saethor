@@ -45,10 +45,9 @@ const EventsPage = async ({ searchParams }: Props) => {
   const events: Event[] = await getPaginatedEvents(currentPage);
   await new Promise((r) => setTimeout(r, 1000));
   return (
-    <>
+    <section className=" grid grid-cols-subgrid col-[full]">
       <TitleCard title="Events" />
-      <section>
-        {/* <EventCard
+      {/* <EventCard
           id={1}
           title="placeholder title"
           slug="place-holder-slug"
@@ -63,32 +62,31 @@ const EventsPage = async ({ searchParams }: Props) => {
           date="placeholder date"
         /> */}
 
-        {events.map((e: Event) => (
-          <EventCard
-            key={e.id}
-            id={e.id}
-            slug={e.slug}
-            title={e.title}
-            excerpt={e.excerpt}
-            description={e.description}
-            content={e.content}
-            date={e.date}
-            doorsOpen={e.doorsOpen}
-            asset={e.asset}
-            heroAsset={e.heroAsset}
-            location={e.location}
-            category={e.category}
-            lineup={e.lineup}
-            schedule={e.schedule}
-            price={e.price}
-            ageLimit={e.ageLimit}
-            isFeatured={e.isFeatured}
-            event={e.event}
-          />
-        ))}
-        <PageNav currentPage={currentPage} />
-      </section>
-    </>
+      {events.map((e: Event) => (
+        <EventCard
+          key={e.id}
+          id={e.id}
+          slug={e.slug}
+          title={e.title}
+          excerpt={e.excerpt}
+          description={e.description}
+          content={e.content}
+          date={e.date}
+          doorsOpen={e.doorsOpen}
+          asset={e.asset}
+          heroAsset={e.heroAsset}
+          location={e.location}
+          category={e.category}
+          lineup={e.lineup}
+          schedule={e.schedule}
+          price={e.price}
+          ageLimit={e.ageLimit}
+          isFeatured={e.isFeatured}
+          event={e.event}
+        />
+      ))}
+      <PageNav currentPage={currentPage} />
+    </section>
   );
 };
 

@@ -17,9 +17,27 @@ const CornerShapeRightBottom = {
   cornerBottomRightShape: "bevel",
 };
 
-function Hover({ text, alt, src, icons, intro, reactIcons }: { text: string; alt: string; src: string; icons: string[]; intro: string; reactIcons: ReactNode[] }) {
+function Hover({
+  text,
+  alt,
+  src,
+  icons,
+  intro,
+  reactIcons,
+}: {
+  text: string;
+  alt: string;
+  src: string;
+  icons: string[];
+  intro: string;
+  reactIcons: ReactNode[];
+}) {
   return (
-    <motion.div initial="initial" whileHover="hovering" className="relative overflow-hidden cursor-pointer ">
+    <motion.div
+      initial="initial"
+      whileHover="hovering"
+      className="relative overflow-hidden cursor-pointer "
+    >
       <Image src={src} width={459} height={573} alt={alt} />
 
       <motion.div
@@ -37,7 +55,10 @@ function Hover({ text, alt, src, icons, intro, reactIcons }: { text: string; alt
           }}
           transition={{ duration: 0.2 }}
         >
-          <div style={CornerShapeLeftTop} className=" size-20 rotate-180 "></div>
+          <div
+            style={CornerShapeLeftTop}
+            className=" size-20 rotate-180 "
+          ></div>
         </motion.div>
         <motion.div
           className="absolute bottom-0 right-0"
@@ -47,7 +68,10 @@ function Hover({ text, alt, src, icons, intro, reactIcons }: { text: string; alt
           }}
           transition={{ duration: 0.2 }}
         >
-          <div style={CornerShapeRightBottom} className=" size-20  rotate-180 "></div>
+          <div
+            style={CornerShapeRightBottom}
+            className=" size-20  rotate-180 "
+          ></div>
         </motion.div>
         <motion.div
           variants={{
@@ -57,7 +81,14 @@ function Hover({ text, alt, src, icons, intro, reactIcons }: { text: string; alt
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           {icons.map((icon) => (
-            <Image key={icon} src={icon} width={70} height={70} alt="icon" className=" mx-auto mt-5 border-2 border-border-header p-5 " />
+            <Image
+              key={icon}
+              src={icon}
+              width={70}
+              height={70}
+              alt="icon"
+              className=" mx-auto mt-5 border-2 border-border-header p-5 "
+            />
           ))}
         </motion.div>
         <motion.div
@@ -93,12 +124,12 @@ function Hover({ text, alt, src, icons, intro, reactIcons }: { text: string; alt
     </motion.div>
   );
 }
-export default function section1Homepage() {
+export default function Section1() {
   return (
-    <>
+    <section className="bg-[url('/assets/background_images/pattern_bg.jpg')] bg-fixed grid grid-cols-subgrid py-20">
       <SectionTitle title="Welcome in nightclub" />
-      <article className="bg-[url('/assets/background_images/pattern_bg.jpg')] ">
-        <section className=" flex justify-between gap-10 m-20 ">
+      <article className=" col-[full] grid grid-cols-subgrid">
+        <section className=" flex justify-between gap-10 py-10 col-[content]">
           <Hover
             src="/assets/content/thumb1.jpg"
             alt="dinnertable"
@@ -109,10 +140,28 @@ injected humour, or randomised words which dont look even slightly believable. "
             reactIcons={[]}
           />
 
-          <Hover src="/assets/content/reastaurant_1.jpg" alt="dinerhands" intro="Restaurant" text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution." icons={[]} reactIcons={[<PiCallBell className="mx-auto border-2 border-border-header size-fit p-5 " />]} />
-          <Hover src="/assets/content/thumb2.jpg" alt="club" intro="Bar" text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin." icons={[]} reactIcons={[<LiaGlassCheersSolid className="mx-auto border-2 border-border-header size-[70] p-5" />]} />
+          <Hover
+            src="/assets/content/reastaurant_1.jpg"
+            alt="dinerhands"
+            intro="Restaurant"
+            text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution."
+            icons={[]}
+            reactIcons={[
+              <PiCallBell className="mx-auto border-2 border-border-header size-fit p-5 " />,
+            ]}
+          />
+          <Hover
+            src="/assets/content/thumb2.jpg"
+            alt="club"
+            intro="Bar"
+            text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin."
+            icons={[]}
+            reactIcons={[
+              <LiaGlassCheersSolid className="mx-auto border-2 border-border-header size-[70] p-5" />,
+            ]}
+          />
         </section>
       </article>
-    </>
+    </section>
   );
 }

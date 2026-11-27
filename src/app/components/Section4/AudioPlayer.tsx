@@ -93,7 +93,7 @@ export default function AudioPlayer({ tracks }: { tracks: Track[] }) {
   };
 
   return (
-    <div className="relative isolate mx-auto max-w-[1000px] bg-black py-6 text-white">
+    <div className="relative isolate  bg-black py-6 text-white">
       <div className="flex items-start gap-8">
         <div className="relative h-[220px] w-[220px] shrink-0">
           <Image

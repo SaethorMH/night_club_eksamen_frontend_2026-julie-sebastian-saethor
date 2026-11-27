@@ -14,7 +14,7 @@ const TestimonialCard = ({ t }: Props) => {
   return (
     <article
       id={`testimonial-${t.id}`}
-      className="w-full h-full  justify-around place-self-center snap-always snap-center shrink-0 flex flex-col content-around place-items-center text-center"
+      className="w-full h-full gap-4 justify-around place-self-center snap-always snap-center shrink-0 flex flex-col content-around place-items-center text-center"
     >
       <Image
         src={t.asset.url}

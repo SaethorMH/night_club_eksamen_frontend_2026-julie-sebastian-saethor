@@ -35,9 +35,9 @@ export default function Header() {
   const underlineAt = hovered ?? activeHref;
 
   return (
-    <div className="bg-(--pink) sticky top-0  z-50">
-      <header className=" @container  bg-(--black) py-3 border-t-2 border-b-2 h-31 border-border-header ">
-        <article className=" flex justify-evenly h-full place-items-center m-auto gap-8  ">
+    <div className="bg-(--pink) grid grid-cols-subgrid sticky top-0 col-[full] z-50">
+      <header className=" @container grid-cols-subgrid col-[full]  bg-(--black) py-3 border-t-2 border-b-2 h-31 border-border-header ">
+        <article className=" flex justify-evenly col-[content] h-full place-items-center gap-8  ">
           <Logo />
 
           <button popoverTarget="popover" className="@3xl:hidden ">

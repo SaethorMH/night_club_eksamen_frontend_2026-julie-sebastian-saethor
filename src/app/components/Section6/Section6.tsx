@@ -17,14 +17,14 @@ export interface Testimonial {
 const Section6 = async () => {
   const testimonials: Testimonial[] = await getTestimonials();
   return (
-    <section className="h-screen">
+    <section className=" py-20 bg-fixed bg-[linear-gradient(rgb(10_0_10/0.9),rgb(10_0_10/0.9)),url('/assets/background_images/footerbg.jpg')] bg-cover bg-center">
       <SectionTitle title="Testimonials" />
-      <div className="flex m-auto h-[60%] w-6xl snap-x snap-mandatory scroll-smooth scrollbar-none overflow-x-auto">
+      <div className="flex m-auto gap-10 w-6xl snap-x snap-mandatory scroll-smooth scrollbar-none overflow-x-auto">
         {testimonials.map((test) => (
           <TestimonialCard key={test.id} t={test} />
         ))}
       </div>
-      <CarouselDots ids={testimonials.map((t) => t.id)} />{" "}
+      <CarouselDots ids={testimonials.map((t) => t.id)} />
     </section>
   );
 };

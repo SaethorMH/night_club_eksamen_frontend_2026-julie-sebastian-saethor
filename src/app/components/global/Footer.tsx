@@ -7,10 +7,10 @@ import { AiOutlineX } from "react-icons/ai";
 export default function Footer() {
   return (
     <>
-      <footer className=" relative @container ">
-        <Image src="/assets/background_images/footerbg.jpg" width={1920} height={800} alt="footerbg " className="@max-3xl: h-[800] object-cover  " />
-        <div className=" absolute inset-0 bg-(--black) opacity-70 "></div>
-        <article className="  absolute w-full z-10 top-[25%] ">
+      <footer className=" py-20 relative @container bg-fixed bg-[linear-gradient(rgb(10_0_10/0.9),rgb(10_0_10/0.9)),url('/assets/background_images/footerbg.jpg')] bg-cover bg-center">
+        {/* <Image src="/assets/background_images/footerbg.jpg" width={1920} height={800} alt="footerbg " className="@max-3xl: h-[800] object-cover  " /> */}
+
+        <article className="   w-full z-10 top-[25%] ">
           <section className="grid @3xl:grid-cols-3 ">
             <div className="mx-auto mt-3">
               <Logo />
@@ -25,16 +25,32 @@ export default function Footer() {
             <div className=" @max-3xl:hidden @3xl:mx-auto ">
               <h4 className="uppercase text-(--pink)">news</h4>
               <div className=" flex items-start mt-10 ">
-                <Image src="/assets/content/recent_post1.jpg" width={120} height={120} alt="newsimg1" />
+                <Image
+                  src="/assets/content/recent_post1.jpg"
+                  width={120}
+                  height={120}
+                  alt="newsimg1"
+                />
                 <div className="max-inline-2xs m-5">
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting.
+                  </p>
                   <p className="text-(--pink) mt-3">April 17, 2026</p>
                 </div>
               </div>
               <div className="flex items-start mt-10  ">
-                <Image src="/assets/content/recent_post2.jpg" width={120} height={120} alt="newsimg1" />
+                <Image
+                  src="/assets/content/recent_post2.jpg"
+                  width={120}
+                  height={120}
+                  alt="newsimg1"
+                />
                 <div className="max-inline-2xs m-5">
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting.
+                  </p>
                   <p className="text-(--pink) mt-3">April 17, 2026</p>
                 </div>
               </div>
@@ -44,14 +60,20 @@ export default function Footer() {
               <div className="flex items-start ">
                 <AiOutlineX className=" mt-6 text-(--pink)" />
                 <div className="max-inline-3xs m-5">
-                  <p>It is a long established fact that a reader will be distracted by the readable... </p>
+                  <p>
+                    It is a long established fact that a reader will be
+                    distracted by the readable...{" "}
+                  </p>
                   <p className="text-(--pink) ">5 hours ago</p>
                 </div>
               </div>
               <div className="flex items-start ">
                 <AiOutlineX className=" mt-6 text-(--pink)" />
                 <div className="max-inline-3xs m-5">
-                  <p>It is a long established fact that a reader will be distracted by the readable... </p>
+                  <p>
+                    It is a long established fact that a reader will be
+                    distracted by the readable...{" "}
+                  </p>
                   <p className="text-(--pink)">5 hours ago</p>
                 </div>
               </div>
