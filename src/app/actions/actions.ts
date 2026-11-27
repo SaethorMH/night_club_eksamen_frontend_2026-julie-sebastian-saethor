@@ -9,7 +9,7 @@ export async function Forms(formData: FormData) {
   const pax = formData.get("pax");
   const date = formData.get("date");
   const phone = formData.get("phone");
-  const comment = formData.get("comment");
+
 
   const validatedFields = InfoForms.safeParse({
     name,
@@ -18,7 +18,6 @@ export async function Forms(formData: FormData) {
     pax,
     date,
     phone,
-    comment,
   });
 
   if (!validatedFields.success) {

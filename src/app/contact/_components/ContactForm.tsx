@@ -1,48 +1,75 @@
 "use client";
 import type { SubmitEvent } from "react";
+import { ContactForms } from "@/app/formSchema/formSchema";
+import { email } from "zod";
+import { useState } from "react";
 import Button from "@/app/components/global/Button";
 
 export default function ContactForm() {
+  const [nameErrors, setNameErrors] = useState<string[]>([]);
+  const [emailErrors, setEmailErrors] = useState<string[]>([]);
+
   function handleSumit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
+    const result = ContactForms.safeParse({
+      name: formData.get("name"),
+      email: formData.get("email"),
+    });
 
-    console.log("Contact data", Object.fromEntries(formData.entries()));
+    if (!result.success) {
+      const nameErrors = result.error.issues.filter((issue) => issue.path[0] === "name").map((issue) => issue.message);
+      const emailErrors = result.error.issues.filter((issue) => issue.path[0] === "email").map((issue) => issue.message);
+
+      setNameErrors(nameErrors);
+      setEmailErrors(emailErrors);
+
+      console.log("Error:", result.error.issues[0]?.message);
+
+      return;
+    }
+    {
+      nameErrors.map((error, index) => (
+        <p key={index} className="text-red-400 text-sm">
+          {error}
+        </p>
+      ));
+    }
+    {
+      emailErrors.map((error, index) => (
+        <p key={index} className="text-red-400 text-sm">
+          {error}
+        </p>
+      ));
+    }
+    setNameErrors([]);
+    setEmailErrors([]);
+
+    console.log("Zod resultat:", result.data.name);
+
+    console.log("Booking data", Object.fromEntries(formData.entries()));
   }
 
   return (
     <section className=" bg-black bg-cover bg-center mx-auto w-full max-w-5xl px-6 py-10">
-      <form onSubmit={handleSumit} noValidate>
-        <div className="grid grid-cols-2 gap-4 ">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            aria-label="Your Name"
-          />
+      <form onSubmit={handleSumit} noValidate className="mx-auto w-full max-w-md flex flex-col gap-4">
+        <div className="grid grid-cols-1">
+          <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" />
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            aria-label="Your Email"
-          />
-
-          <input
-            type="text"
-            name="comment"
-            placeholder="Your Comments"
-            className="h-30  md:col-span-2"
-          />
+          <div className="min-h-10 pt-1">{nameErrors && <p className="text-red-400 text-sm"> {nameErrors}</p>}</div>
         </div>
 
+        <div className="grid grid-cols-1">
+          <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" />
+          <div className="min-h-10 pt-1">{emailErrors && <p className="text-red-400 text-sm"> {emailErrors}</p>}</div>
+        </div>
+
+        <textarea name="comment" placeholder="Your Comments" className=" h-30 md:col-span-2" />
+
         <div className="mt-4 flex justify-end">
-          <button
-            type="submit"
-            className=" border-y uppercase px-8 py-3 text-sm text-gray-400"
-          >
-            Reserve
+          <button type="submit" className=" border-y uppercase px-8 py-3 text-sm text-gray-400">
+            Send
           </button>
         </div>
       </form>
