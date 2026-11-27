@@ -35,76 +35,78 @@ export default function Header() {
   const underlineAt = hovered ?? activeHref;
 
   return (
-    <header className=" @container sticky top-0 z-50 bg-(--black) py-3 border-2  border-border-header ">
-      <article className=" flex justify-evenly place-items-center m-auto gap-8  ">
-        <Logo />
+    <div className="bg-(--pink) sticky top-0  z-50">
+      <header className=" @container  bg-(--black) py-3 border-t-2 border-b-2 h-31 border-border-header ">
+        <article className=" flex justify-evenly h-full place-items-center m-auto gap-8  ">
+          <Logo />
 
-        <button popoverTarget="popover" className="@3xl:hidden ">
-          ≡
-        </button>
-        <div
-          id="popover"
-          popover="auto"
-          className="   bg-(--black) opacity-70 w-screen h-screen open:grid grid-cols-1 text-center gap-1"
-        >
-          <button
-            popoverTarget="popover"
-            popoverTargetAction="hide"
-            className=""
-          >
-            X
+          <button popoverTarget="popover" className="@3xl:hidden ">
+            ≡
           </button>
+          <div
+            id="popover"
+            popover="auto"
+            className="   bg-(--black) opacity-70 w-screen h-screen open:grid grid-cols-1 text-center gap-1"
+          >
+            <button
+              popoverTarget="popover"
+              popoverTargetAction="hide"
+              className=""
+            >
+              X
+            </button>
 
-          <Link href={"/"}>Home</Link>
-          <Link href={"/"}>Events</Link>
-          <Link href={"/"}>Book Table</Link>
-          <Link href={"/"}>Contact us</Link>
-        </div>
+            <Link href={"/"}>Home</Link>
+            <Link href={"/"}>Events</Link>
+            <Link href={"/"}>Book Table</Link>
+            <Link href={"/"}>Contact us</Link>
+          </div>
 
-        <nav
-          className="hidden @3xl:flex justify-evenly place-items-center gap-10 uppercase "
-          onMouseLeave={() => setHovered(null)}
-        >
-          {links.map((link) => {
-            const active = link.isActive(currentPath);
-            return (
-              <div
-                key={link.href}
-                className="relative"
-                onMouseEnter={() => setHovered(link.href)}
-              >
-                <RollingLink
-                  href={link.href}
-                  ariacurrent={active ? true : undefined}
+          <nav
+            className="hidden @3xl:flex justify-evenly place-items-center gap-10 uppercase "
+            onMouseLeave={() => setHovered(null)}
+          >
+            {links.map((link) => {
+              const active = link.isActive(currentPath);
+              return (
+                <div
+                  key={link.href}
+                  className="relative text-[24px]"
+                  onMouseEnter={() => setHovered(link.href)}
                 >
-                  {link.label}
-                </RollingLink>
-
-                {underlineAt === link.href && (
-                  <motion.div
-                    layoutId="nav-underline"
-                    className="absolute inset-x-0 mx-auto "
-                    transition={{
-                      type: "spring",
-                      stiffness: 1000,
-                      damping: 200,
-                    }}
+                  <RollingLink
+                    href={link.href}
+                    ariacurrent={active ? true : undefined}
                   >
-                    <MotionImage
-                      src="/assets/bottom_line_slider/bottom_line2.png"
-                      width={200}
-                      height={100}
-                      alt="slider"
-                      className="absolute mx-auto "
-                    />
-                  </motion.div>
-                )}
-              </div>
-            );
-          })}
-        </nav>
-      </article>
-    </header>
+                    {link.label}
+                  </RollingLink>
+
+                  {underlineAt === link.href && (
+                    <motion.div
+                      layoutId="nav-underline"
+                      className="absolute inset-x-0 mx-auto "
+                      transition={{
+                        type: "spring",
+                        stiffness: 1000,
+                        damping: 200,
+                      }}
+                    >
+                      <MotionImage
+                        src="/assets/bottom_line_slider/bottom_line2.png"
+                        width={200}
+                        height={100}
+                        alt="slider"
+                        className="absolute mx-auto "
+                      />
+                    </motion.div>
+                  )}
+                </div>
+              );
+            })}
+          </nav>
+        </article>
+      </header>
+    </div>
   );
 }
 
@@ -122,7 +124,12 @@ const RollingLink = ({
 
   return (
     <>
-      <motion.a initial="initial" whileHover="hovering" href={href} className="relative block overflow-hidden whitespace-pre ">
+      <motion.a
+        initial="initial"
+        whileHover="hovering"
+        href={href}
+        className="relative block overflow-hidden whitespace-pre "
+      >
         <div>
           {children.split("").map((letter, index) => {
             return (

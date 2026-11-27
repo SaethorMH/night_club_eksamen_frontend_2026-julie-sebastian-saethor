@@ -8,7 +8,7 @@ const Logo = () => {
         width={189}
         height={46}
         alt="logo"
-        className="size-fit"
+        className=""
       ></Image>
     </Link>
   );
