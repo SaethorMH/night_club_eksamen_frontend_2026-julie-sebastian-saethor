@@ -19,6 +19,7 @@ export default function NewsLetter() {
     if (!result.success) {
       const emailErrors = result.error.issues.filter((issue) => issue.path[0] === "email").map((issue) => issue.message);
 
+      
       setEmailErrors(emailErrors);
       // console.log("Error:", result.error.issues[0]?.message);
       return;

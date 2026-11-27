@@ -28,12 +28,22 @@ export const ContactForms = z.object({
 });
 
 export const NewsletterForms = z.object({
+  email: z.email("Please enter a valid email address"),
+
+});
+
+
+
+
+export const CommentsForms = z.object({
   name: z
     .string()
     .trim()
     .regex(/^[\p{L} ]+$/u, "Use only letters and spaces. ")
     .min(2, "Use at least 2 letters."),
   email: z.email("Please enter a valid email address"),
- 
+ comment: z
+    .string()
+    .trim()
+    .min(5, "Use at least 5 letters."),
 });
-
