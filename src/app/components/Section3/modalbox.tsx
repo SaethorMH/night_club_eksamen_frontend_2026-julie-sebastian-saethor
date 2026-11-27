@@ -2,7 +2,12 @@ import { API_URL } from "@/config";
 import {Gallery} from "./section3"
 import Image from "next/image";
 import { AiOutlineX } from "react-icons/ai";
-  const CornerShapeLeftTop = {
+
+
+
+
+
+const CornerShapeLeftTop = {
     backgroundColor: "var(--pink)",
     borderTopLeftRadius: "5rem",
     cornerTopLeftShape: "bevel",
@@ -33,6 +38,7 @@ declare module "react" {
 
 
 
+
 }
 export default function Modalbox({g}:Props){
 return (
@@ -41,7 +47,9 @@ return (
 
     <dialog className="backdrop:bg-[oklch(0.2024_0_0/90%)] hidden open:block overflow-visble bg-transparent scrollbar-none fixed  mx-auto mt-4" id={`modal-${g.id}`} closedby="any">
       <Image src={API_URL + g.asset.url} width={g.asset.width} height={g.asset.height} alt={g.asset.alt} className="border  border-border-header w-full  " />
-
+      <div className="relative">
+        <Image src="/assets/icons/pager_divider.png" width={20} height={20} alt="left" className="absolute top-0 right-2" />
+      </div>
       <article className="text-start bg-black ">
         <section className="max-inline-3xl p-5 ">
           <h2 className="mt-2">Night club Party</h2>
