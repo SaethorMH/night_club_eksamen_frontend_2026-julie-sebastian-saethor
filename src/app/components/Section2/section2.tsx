@@ -22,7 +22,20 @@ const CornerShapeRightBottom = {
 };
 export default async function Section2() {
   const events = await getEvents();
-  const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const MONTHS = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   const Dates = (e: Event) => {
     const d = new Date(e.date);
     const date = d.getDate();
@@ -35,16 +48,25 @@ export default async function Section2() {
     return date + " " + month + "   " + time + " ";
   };
   return (
-    <>
+    <section className="bg-[url('/assets/background_images/slider_bg_overlay.png')] bg-fixed py-20 grid grid-cols-subgrid bg-cover">
       <SectionTitle title="Featured events" />
-      <article className="bg-[url('/assets/background_images/slider_bg_overlay.png')]">
-        <section className="flex justify-center gap-5 mx-auto m-5 ">
+      <article className="  grid grid-cols-subgrid col-[full]">
+        <section className="flex justify-between gap-5 col-[content] mt-5 ">
           {events.map(
             (e: Event) =>
               e.isFeatured && (
                 <div key={e.id}>
-                  <motion.div initial="initial" whileHover="hovering" className="relative">
-                    <Image height={e.asset.height} width={e.asset.width} alt={e.asset.alt} src={e.asset.url} />
+                  <motion.div
+                    initial="initial"
+                    whileHover="hovering"
+                    className="relative"
+                  >
+                    <Image
+                      height={e.asset.height}
+                      width={e.asset.width}
+                      alt={e.asset.alt}
+                      src={e.asset.url}
+                    />
 
                     <motion.div
                       variants={{
@@ -61,8 +83,13 @@ export default async function Section2() {
                         }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div style={CornerShapeLeftTop} className=" size-20 rotate-180 "></div>
-                        <button className="grid mx-auto mt-5 bg-(--pink) p-3">Book now</button>
+                        <div
+                          style={CornerShapeLeftTop}
+                          className=" size-20 rotate-180 "
+                        ></div>
+                        <button className="grid mx-auto mt-5 bg-(--pink) p-3">
+                          Book now
+                        </button>
                       </motion.div>
                       <section className="bg-(--black)/70 absolute bottom-0 max-inline-xl px-5 ">
                         <h2>{e.title}</h2>
@@ -83,7 +110,10 @@ export default async function Section2() {
                           }}
                           transition={{ duration: 0.2 }}
                         >
-                          <div style={CornerShapeRightBottom} className=" size-20  rotate-180 "></div>
+                          <div
+                            style={CornerShapeRightBottom}
+                            className=" size-20  rotate-180 "
+                          ></div>
                         </motion.div>
                       </motion.div>
                     </motion.div>
@@ -98,6 +128,6 @@ export default async function Section2() {
           )}
         </section>
       </article>
-    </>
+    </section>
   );
 }

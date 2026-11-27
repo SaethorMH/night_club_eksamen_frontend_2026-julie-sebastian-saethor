@@ -20,15 +20,15 @@ const EventDetailsSection = ({ event }: Props) => {
   }
 
   return (
-    <section>
+    <section className="grid grid-cols-subgrid col-[full]">
       <Image
         src={event.heroAsset.url}
         alt={event.heroAsset.alt}
         width={event.heroAsset.width}
         height={event.heroAsset.height}
-        className="w-full"
+        className="w-full col-[full]"
       />
-      <article className="max-w-5xl flex flex-col justify-evenly gap-4 m-auto mt-12 mb-12">
+      <article className=" flex flex-col justify-evenly gap-4 py-20   col-[content]">
         <h2>{event.title}</h2>
         <div className="flex gap-4 uppercase">
           {event.lineup.map((l) => (

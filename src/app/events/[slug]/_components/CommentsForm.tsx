@@ -13,7 +13,7 @@ export default function CommentsForm() {
   }
 
   return (
-    <section className=" bg-black bg-cover bg-center mx-auto w-full max-w-5xl px-6 py-10">
+    <section className="col-[content] py-20">
       <form onSubmit={handleSubmit} noValidate>
         <div className="grid grid-cols-2 gap-4 ">
           <input

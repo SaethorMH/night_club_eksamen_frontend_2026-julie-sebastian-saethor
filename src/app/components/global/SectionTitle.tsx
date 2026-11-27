@@ -6,7 +6,7 @@ type Props = {
 
 const SectionTitle = ({ title }: Props) => {
   return (
-    <section className="flex flex-col items-center place-content-center align-middle h-20 w-full">
+    <section className="flex flex-col items-center col-[content] place-content-center align-middle h-20 w-full">
       <h1>{title}</h1>
       <Image
         src={"/assets/bottom_line_slider/bottom_line.png"}

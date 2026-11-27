@@ -43,9 +43,9 @@ const tracks: Track[] = [
 
 const Section4 = () => {
   return (
-    <section>
+    <section className="grid col-[full] grid-cols-subgrid">
       <SectionTitle title="Night Club Track" />
-      <article>
+      <article className=" col-[content]">
         <AudioPlayer tracks={tracks} />
       </article>
     </section>

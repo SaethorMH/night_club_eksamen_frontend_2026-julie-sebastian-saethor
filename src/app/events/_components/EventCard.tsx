@@ -29,17 +29,19 @@ const EventCard = (event: Event) => {
   }
 
   return (
-    <article className="grid grid-cols-2">
+    <article className="grid grid-cols-subgrid  col-[full]">
       {event.id % 2 !== 0 && (
         <Image
           height={event.asset.height}
           width={event.asset.width}
           alt={event.asset.alt}
           src={event.asset.url}
-          className="w-full"
+          className="col-[full-start/center] object-cover w-full"
         />
       )}
-      <div className="flex flex-col  p-8.5">
+      <div
+        className={`flex flex-col ${event.id % 2 == 0 ? "col-[content-start/center]" : "col-[center/content-end]"} p-8.5`}
+      >
         <h2 className="mb-2">{event.title}</h2>
         <p className="mb-4">
           <span className="text-(--pink) ">
@@ -47,7 +49,7 @@ const EventCard = (event: Event) => {
           </span>
           | <span className="uppercase">{event.location}</span>
         </p>
-        <p>{event.excerpt}</p>
+        <p>{event.description}</p>
         <Link
           href={"/events/" + event.slug}
           className="uppercase place-self-end mt-auto border-t-2 border-b-2 border-(--white) border-solid p-5"
@@ -61,7 +63,7 @@ const EventCard = (event: Event) => {
           width={event.asset.width}
           alt={event.asset.alt}
           src={event.asset.url}
-          className="w-full"
+          className="col-[center/full-end] object-cover w-full"
         />
       )}
     </article>
