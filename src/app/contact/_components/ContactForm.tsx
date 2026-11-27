@@ -53,19 +53,19 @@ export default function ContactForm() {
 
   return (
     <section className=" bg-black bg-cover bg-center mx-auto w-full max-w-5xl px-6 py-10">
-      <form onSubmit={handleSumit} noValidate className="mx-auto w-full max-w-md flex flex-col gap-4">
+      <form onSubmit={handleSumit} noValidate className="mx-auto w-full max-w-md flex flex-col ">
         <div className="grid grid-cols-1">
-          <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" />
+          <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" className="input"/>
 
           <div className="min-h-10 pt-1">{nameErrors && <p className="text-red-400 text-sm"> {nameErrors}</p>}</div>
         </div>
 
         <div className="grid grid-cols-1">
-          <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" />
+          <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" className="input"/>
           <div className="min-h-10 pt-1">{emailErrors && <p className="text-red-400 text-sm"> {emailErrors}</p>}</div>
         </div>
 
-        <textarea name="comment" placeholder="Your Comments" className=" h-30 md:col-span-2" />
+        <textarea name="comment" placeholder="Your Comments" className=" h-30 md:col-span-2 input" />
 
         <div className="mt-4 flex justify-end">
           <button type="submit" className=" border-y uppercase px-8 py-3 text-sm text-gray-400">

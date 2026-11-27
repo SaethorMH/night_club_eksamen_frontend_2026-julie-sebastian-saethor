@@ -16,33 +16,15 @@ export default function CommentsForm() {
     <section className=" bg-black bg-cover bg-center mx-auto w-full max-w-5xl px-6 py-10">
       <form onSubmit={handleSubmit} noValidate>
         <div className="grid grid-cols-2 gap-4 ">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            aria-label="Your Name"
-          />
+          <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" className="input text-gray-400" />
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            aria-label="Your Email"
-          />
+          <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" className="input" />
 
-          <textarea
-            name="content"
-            placeholder="Your Comments"
-            className="h-30  md:col-span-2"
-            aria-label="Your Comments"
-          />
+          <textarea name="content" placeholder="Your Comments" className="h-30  md:col-span-2 input" aria-label="Your Comments" />
         </div>
 
         <div className="mt-4 flex justify-end">
-          <button
-            type="submit"
-            className=" border-y uppercase px-8 py-3 text-sm text-gray-400"
-          >
+          <button type="submit" className=" border-y uppercase px-8 py-3 text-sm text-gray-400">
             Submit
           </button>
         </div>
