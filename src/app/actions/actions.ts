@@ -85,23 +85,21 @@ export async function postNewsletters(email: string) {
   });
   return response.ok;
 }
-
-//Assisteret af AI//
 export async function postComment(comment: {
+  name: string;
   eventId: number;
   content: string;
-  name: string;
   date: string;
 }) {
   const response = await fetch(API_URL + "comments", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(comment),
+    body: JSON.stringify({
+      eventId: comment.eventId,
+      name: comment.name,
+      content: comment.content,
+      date: comment.date,
+    }),
   });
-  if (!response.ok) {
-    throw new Error("Failed to post comment");
-  }
-
-  return response.json();
+  return response.ok;
 }
-//////////////////////
